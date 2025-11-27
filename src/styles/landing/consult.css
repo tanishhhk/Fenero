@@ -6,6 +6,7 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   width: 100%;
   max-width: 1400px;
+  margin: auto;
   margin-left :250px;
   border-radius: 24px;
   padding: 60px 40px;
