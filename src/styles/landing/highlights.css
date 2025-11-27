@@ -98,14 +98,14 @@
   border-radius: 14px;
   background: linear-gradient(135deg, #3a7bd5, #82c0ff);
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* IMPORTANT */
   backdrop-filter: blur(10px);
 }
 
 .highlight-card {
-  flex: 1 1 calc(20% - 26px);
-  min-width: 220px;
-  max-width: 260px;
+  flex: 0 0 19%;  /* 5 cards per row = (100/5) - gap */
+  min-width: 0;
+  max-width: none;
   padding: 32px 26px;
   text-align: center;
   background: rgba(255, 255, 255, 0.92);
@@ -114,6 +114,7 @@
   transition: 0.25s ease;
   font-size: 17px;
 }
+
 
 .highlight-card:hover {
   transform: translateY(-4px);
@@ -130,6 +131,12 @@
 /* ============================================================
    🔥 RESPONSIVENESS
    ============================================================ */
+
+@media (max-width: 900px) {
+  .highlights-container { flex-wrap: wrap; }
+  .highlight-card { flex: 0 0 calc(33.33% - 20px); }
+}
+
 
 /* Larger screens (4K / ultrawide / 16-inch+) */
 @media (min-width: 1536px) {
