@@ -69,38 +69,36 @@ function ServicesSection() {
   const [visible, setVisible] = useState([]); // Track which cards are visible
   const [selectedTab, setSelectedTab] = useState(0); // Track selected tab in featured section
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = cardRefs.current.indexOf(entry.target);
-            if (idx !== -1 && !visible.includes(idx)) {
-              // Stagger the animations with delay
-              setTimeout(() => {
-                setVisible((prev) => [...prev, idx]);
-              }, idx * 150);
-            }
-          }
-        });
-      },
-      { threshold: 0.2 } // Trigger when 20% visible
-    );
-
-    const currentRefs = cardRefs.current;
-    currentRefs.forEach((ref) => ref && observer.observe(ref));
-
-    // Cleanup observer on unmount
-    return () => {
-      currentRefs.forEach((ref) => ref && observer.unobserve(ref));
-    };
-  }, [visible]);
 
   // Handle card expansion in grid view
   const handleCardClick = (index) => {
     setActiveCard(activeCard === index ? null : index);
   };
+
+  useEffect(() => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger animation for each tab
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+      }
+    });
+  }, observerOptions);
+
+
+  // Observe all tabs
+  const tabs = document.querySelectorAll('.services-tab');
+  tabs.forEach(tab => observer.observe(tab));
+
+  return () => observer.disconnect();
+}, []);
 
   return (
     <section className="services-section-enhanced" id="services">

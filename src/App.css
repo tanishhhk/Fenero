@@ -1,21 +1,17 @@
 body {
-  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a);
+  background-attachment: fixed;
   color: black;
-  width: 100%;
 }
 
-html{
-  scroll-behavior: smooth;
+button:focus,
+button:active {
+    outline: none;
+    box-shadow: none;
 }
 
-button:focus {
-  outline: none;
-}
-
-/* For links */
-a:focus {
-  outline: none;
-}
 
 .page-wrapper {
   width: 100%;
@@ -55,4 +51,69 @@ a:focus {
     width: 95%;
     padding: 1rem;
   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a);
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+/* Ensure your main app container doesn't override */
+#root {
+  background: transparent;
+}
+
+/* Optional: Make all sections inherit dark theme */
+section {
+  background: transparent;
+  color: #ffffff;
+}
+
+/* Smooth scroll behavior for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Sections start hidden and fade in */
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When section becomes visible */
+section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Prevent transition on page load */
+.preload * {
+  transition: none !important;
 }

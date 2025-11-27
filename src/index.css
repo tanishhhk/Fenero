@@ -17,6 +17,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*, *:focus, *:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
 html {
   width: 100%;
   overflow-x: hidden;

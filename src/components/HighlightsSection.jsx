@@ -1,5 +1,6 @@
 import "../styles/landing/highlights.css"
 import financeIllustration from "../assets/finance-illustration.png";
+import { useEffect, useRef } from "react";
 
 const HIGHLIGHTS = [
   {
@@ -25,8 +26,54 @@ const HIGHLIGHTS = [
 ];
 
 function HighlightsSection() {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    // Observer for main section elements
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observer for cards with stagger effect
+    const cardsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = cardsRef.current.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('card-animate-in');
+          }, index * 100); // Stagger delay: 100ms per card
+        }
+      });
+    }, observerOptions);
+
+    // Observe title, subtitle, and image
+    const leftContent = document.querySelector('.highlights-left');
+    if (leftContent) sectionObserver.observe(leftContent);
+
+    // Observe all cards
+    cardsRef.current.forEach(card => {
+      if (card) cardsObserver.observe(card);
+    });
+
+    return () => {
+      sectionObserver.disconnect();
+      cardsObserver.disconnect();
+    };
+  }, []);
+
+
   return (
-    <section className="highlights-bg">
+    <section className="highlights-bg" ref={sectionRef}>
       <div className="highlights-wrapper">
 
         {/* Top split layout */}
@@ -54,24 +101,22 @@ function HighlightsSection() {
           </div>
         </div>
 
-        
-
         {/* Highlight cards */}
         <div className="highlights-container">
           {HIGHLIGHTS.map((item, i) => (
-            <div className="highlight-card" key={i}>
+            <div 
+              className="highlight-card" 
+              key={i}
+              ref={el => cardsRef.current[i] = el}
+            >
               <h4 className="highlight-title">{item.title}</h4>
               <p>{item.desc}</p>
             </div>
           ))}
         </div>
 
-
-
       </div>
     </section>
-
-    
   );
 }
 
