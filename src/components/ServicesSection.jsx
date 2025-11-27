@@ -108,7 +108,7 @@ function ServicesSection() {
         
         {/* ============== HEADER SECTION ============== */}
         <div className="services-header">
-          <h2 className="services-main-title">Comprehensive Financial Solutions</h2>
+          <h2 className="services-main-title">What we Offer</h2>
           <p className="services-main-subtitle">
             Strategic capital advisory and transaction support tailored to accelerate your business growth and optimize financial performance.
           </p>

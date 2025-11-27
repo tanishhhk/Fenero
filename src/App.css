@@ -26,3 +26,33 @@ a:focus {
   position: relative;
   z-index: 1;
 }
+
+/* Default - laptop 14 inch range (1024px–1440px) */
+.card {
+  width: 60%;
+  padding: 2rem;
+}
+
+/* Bigger screens (16 inch laptops etc.) */
+@media (min-width: 1536px) {
+  .card {
+    width: 50%;
+    padding: 3rem;
+  }
+}
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .card {
+    width: 80%;
+    padding: 1.5rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+    padding: 1rem;
+  }
+}
