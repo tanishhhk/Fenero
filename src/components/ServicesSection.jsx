@@ -1,4 +1,4 @@
-import "../styles/landing/servicesSection.css"
+import "../styles/landing/ServicesSection.css"
 // ===================================================================
 // ServicesSection.jsx - Enhanced Services Component (Professional)
 // ===================================================================
