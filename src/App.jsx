@@ -5,6 +5,7 @@ import HighlightsSection from "./components/HighlightsSection";
 import ServicesSection from "./components/ServicesSection";
 import Navbar from "./components/Navbar";
 import Consult from "./components/Consult";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <ServicesSection />
       <HighlightsSection />
       <Consult/>
+      <Footer/>
     </div>
   );
 }
