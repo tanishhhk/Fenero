@@ -113,6 +113,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
   transition: 0.25s ease;
   font-size: 17px;
+
 }
 
 
@@ -126,6 +127,68 @@
   opacity: 0.9;
   line-height: 1.5;
   margin: 0;
+  color: #0a1a3f;
+  font-weight: 600;
+}
+
+.highlight-title{
+  color: black;
+}
+
+/* Smooth Scroll Animations */
+
+/* Left content starts hidden */
+.highlights-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.highlights-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Right content (image) - STAYS VISIBLE, NO ANIMATION */
+.highlights-right {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cards start hidden */
+.highlight-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cards animate in with stagger */
+.highlight-card.card-animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Keep hover effect working */
+.highlight-card.card-animate-in:hover {
+  transform: translateY(-4px) scale(1);
+}
+
+/* Section container fade in */
+.highlights-bg {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.highlights-bg.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlights-img-box {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 
 /* ============================================================

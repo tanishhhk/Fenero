@@ -33,16 +33,22 @@
   transition: opacity 0.3s unset;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  color: #000;
+  background: linear-gradient(45deg, #0f1c2e, #0173e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   white-space: nowrap;
   font-size: 20px;
 }
 
+
 .nav-links a:hover {
-  opacity: 0.8;
-  color: rgb(255, 187, 0);
+  opacity: 0.9;
+  background: none;
+  color: #000; 
+  -webkit-text-fill-color: #000;
+
 }
 
 .new-actions {
