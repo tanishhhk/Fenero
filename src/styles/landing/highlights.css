@@ -1,41 +1,35 @@
-
-/* Highlights  */
+/* ============================================================
+   HIGHLIGHTS SECTION
+   ============================================================ */
 .highlights-bg {
-  width: 99%;                     /* BIG horizontal width */
-  max-width: 1800px;              /* allows it to stretch wider */
-  margin: 40px auto;              /* centered with thin side margins */
+  width: 99%;
+  max-width: 1800px;
+  margin: 40px auto;
   background: linear-gradient(135deg, #0a1a3f, #0d47a1);
-  padding: 70px 0;                /* normal height */
-  border-radius: 20px;            /* smooth corners */
+  padding: 70px 0;
+  border-radius: 20px;
   box-shadow: 0 16px 50px rgba(0,0,0,0.22);
 }
 
 .highlights-wrapper {
-  padding: 80px 5vw;
+  padding: 70px 6vw;
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
-  gap: 40px;
+  gap: 55px;
+  text-align: center;
 }
 
 .highlights-grid {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 55px;
 }
 
-
-
-.highlights-title {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
+/* LEFT CONTENT */
 .highlights-left {
   flex: 1;
   display: flex;
@@ -43,7 +37,6 @@
   align-items: flex-start;
 }
 
-/* Heading */
 .highlights-left h2 {
   font-size: 42px;
   font-weight: 700;
@@ -51,37 +44,8 @@
   color: white;
 }
 
-/* Make Fenero white */
 .fenero-white {
   color: white;
-}
-
-/* White underline */
-.highlights-left h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  margin-top: 12px;
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-.highlights-sub {
-  font-size: 18px;
-  opacity: 0.9;
-  max-width: 480px;
-  line-height: 1.6;
-  margin-top: 18px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-
-.highlights-img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  object-fit: cover;
 }
 
 .highlights-left h2::after {
@@ -94,6 +58,16 @@
   border-radius: 4px;
 }
 
+.highlights-sub {
+  font-size: 18px;
+  opacity: 0.9;
+  max-width: 520px;
+  line-height: 1.6;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* RIGHT SIDE IMAGE */
 .highlights-right {
   flex: 1;
   display: flex;
@@ -104,37 +78,41 @@
   background: #ffffff;
   padding: 18px;
   border-radius: 18px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
   max-width: 440px;
   width: 100%;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
 }
 
+.highlights-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* CARDS */
 .highlights-container {
   display: flex;
   gap: 25px;
-  padding: 40px 5vw;
-  border-radius: 12px;
+  padding: 40px 4vw;
   width: 100%;
-  max-width: 100%;
+  border-radius: 14px;
   background: linear-gradient(135deg, #3a7bd5, #82c0ff);
-  box-shadow: none;
-  backdrop-filter: blur(10px);
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
+  backdrop-filter: blur(10px);
 }
 
 .highlight-card {
-  flex: 1 1 calc(20%-30px);
-  min-width: 200px;
+  flex: 1 1 calc(20% - 26px);
+  min-width: 220px;
   max-width: 260px;
-  text-align: center;
   padding: 32px 26px;
-  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: 0.25s ease;
   font-size: 17px;
-  
 }
 
 .highlight-card:hover {
@@ -143,51 +121,32 @@
 }
 
 .highlight-card p {
-  margin: 0;
   font-size: 16px;
   opacity: 0.9;
   line-height: 1.5;
+  margin: 0;
 }
 
-/* 4 cards on medium screens */
-@media (max-width: 1200px) {
-  .highlight-card {
-    flex: 1 1 calc(25% - 30px);
+/* ============================================================
+   🔥 RESPONSIVENESS
+   ============================================================ */
+
+/* Larger screens (4K / ultrawide / 16-inch+) */
+@media (min-width: 1536px) {
+  .highlights-left h2 {
+    font-size: 48px;
   }
-}
-
-/* 3 cards on tablets */
-@media (max-width: 900px) {
-  .highlight-card {
-    flex: 1 1 calc(33.33% - 30px);
-  }
-}
-
-/* 2 cards on small tablets */
-@media (max-width: 650px) {
-  .highlight-card {
-    flex: 1 1 calc(50% - 30px);
-  }
-}
-
-/* 1 card on mobile */
-@media (max-width: 450px) {
-  .highlight-card {
-    flex: 1 1 100%;
-  }
-}
-
-
-@media (max-width: 960px) {
   .highlights-wrapper {
-    padding: 60px 20px;
+    padding: 90px 8vw;
   }
+}
 
+/* Medium laptops & tablets */
+@media (max-width: 1024px) {
   .highlights-grid {
     flex-direction: column;
-    align-items: center;
+    gap: 40px;
     text-align: center;
-    gap: 30px;
   }
 
   .highlights-left {
@@ -199,14 +158,39 @@
     margin-right: auto;
   }
 
-  .highlights-sub {
-    max-width: 600px;
+  .highlights-wrapper {
+    padding: 60px 5vw;
+  }
+}
+/* Tablets */
+@media (max-width: 900px) {
+  .highlight-card {
+    flex: 1 1 calc(33.33% - 26px);
   }
 }
 
-@media (max-width: 600px) {
-  .highlights-container {
-    padding: 24px 16px;
-    gap: 16px;
+/* Small tablets */
+@media (max-width: 650px) {
+  .highlight-card {
+    flex: 1 1 calc(50% - 26px);
+  }
+  .highlights-left h2 {
+    font-size: 34px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .highlight-card {
+    flex: 1 1 100%;
+  }
+  .highlights-wrapper {
+    padding: 45px 18px;
+  }
+  .highlights-left h2 {
+    font-size: 28px;
+  }
+  .highlights-sub {
+    font-size: 16px;
   }
 }
