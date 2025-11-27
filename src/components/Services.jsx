@@ -1,3 +1,4 @@
+import "../styles/landing/services.css"
 
         {/* ============== GRID TITLE ============== */}
         <div className="services-grid-title">

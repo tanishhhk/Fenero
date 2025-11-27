@@ -1,4 +1,4 @@
-// src/components/HeroSection.jsx
+import "../styles/landing/hero.css"
 import { useRef } from "react";
 
 function HeroSection() {

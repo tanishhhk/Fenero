@@ -1,3 +1,4 @@
+import "../styles/landing/highlights.css"
 import financeIllustration from "../assets/finance-illustration.png";
 
 const HIGHLIGHTS = [

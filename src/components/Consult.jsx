@@ -1,6 +1,6 @@
+ import "../styles/landing/consult.css"
  function Consult(){
 
- 
  return(
         <div className="services-bottom-cta">
           <h3 className="services-cta-title">Ready to Transform Your Business?</h3>

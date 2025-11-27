@@ -1,0 +1,73 @@
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:20px 20px;
+  background: #ffffff;
+  color: black;
+  border-color: #000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: opacity 0.3s unset;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+  color: rgb(255, 187, 0);
+}
+
+.new-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.login-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+}
+
+.cta-btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  background: linear-gradient(to right, #44a7ff, #0d2940);
+  color: white;
+  font-size: 16px;
+  white-space: nowrap;
+}

@@ -1,3 +1,4 @@
+import "../styles/landing/footer.css"
 import React from "react";
 
 const Footer = () => {

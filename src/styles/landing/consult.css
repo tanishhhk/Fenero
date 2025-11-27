@@ -1,0 +1,80 @@
+
+/* ============================================================
+   BOTTOM CTA SECTION - Final call to action
+   ============================================================ */
+.services-bottom-cta {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  width: 100%;
+  max-width: 1400px;
+  margin-left :250px;
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  padding: 40px 25px;
+  }
+
+/* CTA title */
+.services-cta-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+/* CTA subtitle */
+.services-cta-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 35px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* CTA buttons container */
+.services-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Primary CTA button */
+.services-cta-primary {
+  padding: 16px 36px;
+  background: white;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.services-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Secondary CTA button */
+.services-cta-secondary {
+  padding: 16px 36px;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.services-cta-secondary:hover {
+  background: white;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+}

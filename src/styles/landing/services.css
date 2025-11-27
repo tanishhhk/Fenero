@@ -1,0 +1,53 @@
+
+.view-btn:hover {
+  color: #2b88ff;
+} 
+
+.learn-btn {
+  margin-top: 15px;
+  background: black;
+  /* border: 1px solid #000; */
+  padding: 8px 14px;
+  cursor: pointer;
+  /* border-radius: 6px; */
+  transition: 0.3s ease;
+}
+
+.service-details {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    max-height 0.6s ease-in-out,
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease;
+}
+
+.service-details.expanded {
+  max-height: 500px; 
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-details ul {
+  padding-left: 20px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.service-details li {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
