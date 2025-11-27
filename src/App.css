@@ -8,6 +8,15 @@ html{
   scroll-behavior: smooth;
 }
 
+button:focus {
+  outline: none;
+}
+
+/* For links */
+a:focus {
+  outline: none;
+}
+
 .page-wrapper {
   width: 100%;
   max-width: 100vw;
@@ -243,8 +252,8 @@ html{
 }
 
 .highlight-card {
-  flex: 1;
-  min-width: 220px;
+  flex: 1 1 calc(20%-30px);
+  min-width: 200px;
   max-width: 260px;
   text-align: center;
   padding: 32px 26px;
@@ -255,6 +264,35 @@ html{
   font-size: 17px;
   
 }
+
+/* 4 cards on medium screens */
+@media (max-width: 1200px) {
+  .highlight-card {
+    flex: 1 1 calc(25% - 30px);
+  }
+}
+
+/* 3 cards on tablets */
+@media (max-width: 900px) {
+  .highlight-card {
+    flex: 1 1 calc(33.33% - 30px);
+  }
+}
+
+/* 2 cards on small tablets */
+@media (max-width: 650px) {
+  .highlight-card {
+    flex: 1 1 calc(50% - 30px);
+  }
+}
+
+/* 1 card on mobile */
+@media (max-width: 450px) {
+  .highlight-card {
+    flex: 1 1 100%;
+  }
+}
+
 
 .highlight-card:hover {
   transform: translateY(-4px);
@@ -284,6 +322,7 @@ html{
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
   position: relative;
   overflow: hidden;
+  margin-top: 0;
 }
 
 .services-container-enhanced {
@@ -323,6 +362,8 @@ html{
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
+  padding: auto;
+  margin-top: 0;
 }
 
 /* Subtitle description */
@@ -962,6 +1003,7 @@ html{
   padding:20px 20px;
   background: #ffffff;
   color: black;
+  border-color: #000;
 }
 
 .logo {
