@@ -1,4 +1,3 @@
-
 /* ============================================================
    BOTTOM CTA SECTION - Final call to action
    ============================================================ */
@@ -7,14 +6,15 @@
   width: 100%;
   max-width: 1400px;
   margin: auto;
-  margin-left :250px;
+  /* ❌ Remove hard-coded left margin */
+  /* margin-left: 250px; */
+  
   border-radius: 24px;
   padding: 60px 40px;
   text-align: center;
   color: white;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  padding: 40px 25px;
-  }
+}
 
 /* CTA title */
 .services-cta-title {
@@ -43,16 +43,21 @@
 }
 
 /* Primary CTA button */
-.services-cta-primary {
+.services-cta-primary,
+.services-cta-secondary {
   padding: 16px 36px;
-  background: white;
-  color: #1a1a2e;
-  border: none;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Primary CTA button */
+.services-cta-primary {
+  background: white;
+  color: #1a1a2e;
+  border: none;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
@@ -63,19 +68,66 @@
 
 /* Secondary CTA button */
 .services-cta-secondary {
-  padding: 16px 36px;
   background: transparent;
   color: white;
   border: 2px solid white;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .services-cta-secondary:hover {
   background: white;
   color: #1a1a2e;
   transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   🔥 RESPONSIVENESS SECTION
+   ------------------------------------------------------------ */
+
+/* Large screens (16-inch +) */
+@media (min-width: 1536px) {
+  .services-bottom-cta {
+    padding: 80px 60px;
+  }
+  .services-cta-title {
+    font-size: 42px;
+  }
+}
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .services-bottom-cta {
+    padding: 50px 30px;
+  }
+  .services-cta-title {
+    font-size: 32px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .services-bottom-cta {
+    padding: 40px 20px;
+    border-radius: 18px;
+  }
+  .services-cta-title {
+    font-size: 28px;
+  }
+  .services-cta-subtitle {
+    font-size: 16px;
+  }
+  .services-cta-primary,
+  .services-cta-secondary {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .services-cta-title {
+    font-size: 24px;
+  }
+  .services-cta-buttons {
+    gap: 12px;
+  }
 }
