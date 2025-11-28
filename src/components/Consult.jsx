@@ -8,7 +8,8 @@ function Consult() {
   const handleDownload = () => {
     // Direct download link - downloads instantly to browser's Downloads folder
     const link = document.createElement('a');
-    link.href = '/Fenero%20Capital%20Advisory%20LLP.pdf'; // URL-encoded path with spaces
+    link.href = '/Fenero%20Capital%20Advisory%20LLP%28without%20founder%29.pdf';
+    // URL-encoded path with spaces
     link.download = 'Fenero-Capital-Advisory-LLP.pdf'; // Downloaded filename
     link.click(); // Triggers instant download
   };
