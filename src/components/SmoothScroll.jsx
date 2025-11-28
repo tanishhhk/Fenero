@@ -17,50 +17,43 @@ const SmoothScroll = () => {
       }
     };
 
-    // Intersection Observer for Services and Highlights with proper reset
+    // Intersection Observer with proper reset
     const observerOptions = {
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5], // Multiple thresholds for better detection
-      rootMargin: '-10% 0px -10% 0px' // Trigger earlier
+      threshold: [0, 0.1, 0.2],
+      rootMargin: '-10% 0px -10% 0px'
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Section is visible - animate in
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+          entry.target.classList.add('scroll-animate-in');
         } else {
-          // Section is out of view - reset for re-animation
-          entry.target.style.opacity = '0';
-          entry.target.style.transform = 'translateY(80px)';
-          entry.target.style.transition = 'none'; // Remove transition during reset
-          
-          // Re-enable transition after a brief moment
-          setTimeout(() => {
-            entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-          }, 50);
+          // Section is out of view - remove class to allow re-animation
+          entry.target.classList.remove('scroll-animate-in');
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Observe sections
-    const servicesSection = document.querySelector('.services-section-enhanced');
+    // Observe sections and their child elements
+    const servicesHeader = document.querySelector('.services-header');
+    const servicesTabContainer = document.querySelector('.services-tab-container');
+    const servicesFeaturedCard = document.querySelector('.services-featured-card');
     const highlightsSection = document.querySelector('.highlights-bg');
+    const highlightsLeft = document.querySelector('.highlights-left');
+    const highlightsContainer = document.querySelector('.highlights-container');
 
-    if (servicesSection) {
-      servicesSection.style.opacity = '0';
-      servicesSection.style.transform = 'translateY(80px)';
-      observer.observe(servicesSection);
-    }
-
-    if (highlightsSection) {
-      highlightsSection.style.opacity = '0';
-      highlightsSection.style.transform = 'translateY(80px)';
-      observer.observe(highlightsSection);
-    }
+    // Observe Services elements separately
+    if (servicesHeader) observer.observe(servicesHeader);
+    if (servicesTabContainer) observer.observe(servicesTabContainer);
+    if (servicesFeaturedCard) observer.observe(servicesFeaturedCard);
+    
+    // Observe Highlights elements
+    if (highlightsSection) observer.observe(highlightsSection);
+    if (highlightsLeft) observer.observe(highlightsLeft);
+    if (highlightsContainer) observer.observe(highlightsContainer);
 
     // Add scroll listener for hero
     window.addEventListener('scroll', handleScroll, { passive: true });

@@ -35,15 +35,6 @@ function HighlightsSection() {
       rootMargin: '0px 0px -100px 0px'
     };
 
-    // Observer for main section elements
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, observerOptions);
-
     // Observer for cards with stagger effect
     const cardsObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -52,13 +43,12 @@ function HighlightsSection() {
           setTimeout(() => {
             entry.target.classList.add('card-animate-in');
           }, index * 100); // Stagger delay: 100ms per card
+        } else {
+          // Reset card animation when out of view
+          entry.target.classList.remove('card-animate-in');
         }
       });
     }, observerOptions);
-
-    // Observe title, subtitle, and image
-    const leftContent = document.querySelector('.highlights-left');
-    if (leftContent) sectionObserver.observe(leftContent);
 
     // Observe all cards
     cardsRef.current.forEach(card => {
@@ -66,7 +56,6 @@ function HighlightsSection() {
     });
 
     return () => {
-      sectionObserver.disconnect();
       cardsObserver.disconnect();
     };
   }, []);

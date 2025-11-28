@@ -56,11 +56,11 @@
 }
 
 .login-btn {
-  background: none;
+  background: linear-gradient(to right, #44a7ff, #0d2940);
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: black;
+  color: white;
 }
 
 .cta-btn {
@@ -74,9 +74,6 @@
   white-space: nowrap;
 }
 
-/* RESPONSIVE MEDIA QUERIES */
-
-/* Large Desktop (1440px and above) */
 @media (min-width: 1440px) {
   .navbar {
     padding: 25px 40px;
@@ -84,6 +81,10 @@
   
   .logo {
     font-size: 24px;
+  }
+
+  a{
+    text-decoration: none;
   }
   
   .nav-links {

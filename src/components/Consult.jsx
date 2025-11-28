@@ -29,7 +29,7 @@ function Consult() {
           className="services-cta-primary"
           onClick={handleScheduleConsultation}
         >
-          Schedule Consultation
+          Start Your Journey
         </button>
         <button 
           className="services-cta-secondary"

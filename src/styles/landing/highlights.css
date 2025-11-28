@@ -110,7 +110,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
   transition: 0.25s ease;
   font-size: 17px;
-
 }
 
 
@@ -134,14 +133,28 @@
 
 /* Smooth Scroll Animations */
 
-/* Left content starts hidden */
+/* Section container */
+.highlights-bg {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlights-bg.scroll-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left content */
 .highlights-left {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
 }
 
-.highlights-left.animate-in {
+.highlights-left.scroll-animate-in {
   opacity: 1;
   transform: translateX(0);
 }
@@ -152,7 +165,20 @@
   transform: none;
 }
 
-/* Cards start hidden */
+/* Cards container */
+.highlights-container {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s,
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+
+.highlights-container.scroll-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Individual cards - stagger effect happens via JS */
 .highlight-card {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
@@ -160,7 +186,6 @@
               transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Cards animate in with stagger */
 .highlight-card.card-animate-in {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -169,18 +194,6 @@
 /* Keep hover effect working */
 .highlight-card.card-animate-in:hover {
   transform: translateY(-4px) scale(1);
-}
-
-/* Section container fade in */
-.highlights-bg {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.highlights-bg.section-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .highlights-img-box {

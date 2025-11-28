@@ -1,22 +1,20 @@
 import "../styles/landing/navbar.css"
-import { useNavigate } from 'react-router-dom'; // Add this import
+import { useNavigate } from 'react-router-dom'; 
 
 function Navbar() {
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate(); 
 
-  // Handler for Login button - opens auth page with login mode
   const handleLogin = () => {
     navigate('/auth', { state: { mode: 'login' } });
   };
 
-  // Handler for Get Started button - opens auth page with signup mode
   const handleGetStarted = () => {
     navigate('/auth', { state: { mode: 'signup' } });
   };
 
   return (
     <nav className="navbar">
-      <div className="logo">Fenero</div>
+      <div className="logo"><a href="">Fenero</a></div>
 
       <div className="nav-links">
         <a href="#">About Us</a>

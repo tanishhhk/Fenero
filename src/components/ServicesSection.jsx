@@ -8,11 +8,15 @@ const services = [
     tagline: "Capital That Fuels Growth",
     desc: "End-to-end debt capital arrangement designed to fuel sustainable business expansion with strategic financial partnerships.",
     points: [
-      "Structured funding strategy aligned with business goals",
-      "Financial institution alignment and lender sourcing",
-      "Term sheet negotiation and documentation assistance",
-      "Competitive rate optimization",
-      "Timeline management and execution support"
+"Loan Against Property - Raise capital by pledging commercial or residential property.",
+"Working Capital Loans - Short-term funding to manage daily business expenses and cash flow.",
+"Supply Chain Financing - Improve vendor payments and receivables by using credit linked to supply chain transactions.",
+"Revenue-Based Financing - Flexible funding that is repaid as a percentage of future sales, not fixed EMIs.",
+"Asset Financing - Loans for purchasing or leveraging machinery, equipment, or other physical assets.",
+"Trade Finance - Funding support for domestic or international buying and selling of goods.",
+"Unsecured Business Loans - Business loans without collateral, given on the basis of credit and cash flow strength.",
+"Project Financing - Long-term funding for large projects, backed by projected future cash flows.",
+"Domestic and Export Factoring - Get immediate cash by selling invoices, improving working capital and reducing payment delays."
     ],
     color: "#0066ff"
   },
@@ -59,29 +63,8 @@ const services = [
 
 function ServicesSection() {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({});
-  const headerRef = useRef(null);
   const tabRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const updateIndicator = () => {
@@ -104,10 +87,7 @@ function ServicesSection() {
       <div className="services-container-enhanced">
         
         {/* ============== ENHANCED HEADER SECTION ============== */}
-        <div 
-          ref={headerRef}
-          className={`services-header ${isVisible ? 'services-header-visible' : ''}`}
-        >
+        <div className="services-header">
           <div className="services-header-badge">
             <span className="services-badge-dot"></span>
             <span className="services-badge-text">Our Services</span>
