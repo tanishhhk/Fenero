@@ -28,24 +28,7 @@ function HeroSection() {
     }
   };
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrolled = window.scrollY;
-    const hero = heroRef.current;
-    
-    if (hero) {
-      // Parallax effect
-      hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-      
-      // Fade out on scroll
-      const opacity = Math.max(1 - scrolled / 600, 0);
-      hero.style.opacity = opacity;
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
+  // REMOVED THE DUPLICATE SCROLL HANDLER - SmoothScroll.jsx handles it now
 
   return (
     <div ref={heroRef} className="hero-section">
@@ -100,21 +83,19 @@ useEffect(() => {
           <button onClick={scrollToServices} className="btn-primary">
             <span className="btn-content">
               Explore Services
-        <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 11l-5 5m0 0l-5-5m5 5V6"
-            />
-        </svg>
-
+              <svg className="btn-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 11l-5 5m0 0l-5-5m5 5V6"
+                />
+              </svg>
             </span>
             <div className="btn-gradient-overlay"></div>
           </button>
         </div>
       </div>
-
 
       {/* Scroll Indicator */}
       <div className="scroll-indicator">
@@ -123,8 +104,6 @@ useEffect(() => {
         </div>
       </div>
     </div>
-
-    
   );
 }
 

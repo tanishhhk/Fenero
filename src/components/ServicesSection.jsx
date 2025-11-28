@@ -1,9 +1,5 @@
-import "../styles/landing/ServicesSection.css"
-// ===================================================================
-// ServicesSection.jsx - Enhanced Services Component (Professional)
-// ===================================================================
-
 import React, { useState, useEffect, useRef } from "react";
+import "../styles/landing/ServicesSection.css";
 
 // Services data with comprehensive information
 const services = [
@@ -62,66 +58,97 @@ const services = [
 ];
 
 function ServicesSection() {
-  // State management
-  const [activeCard, setActiveCard] = useState(null); // Track expanded cards in grid
-  const [hoveredCard, setHoveredCard] = useState(null); // Track hovered cards
-  const cardRefs = useRef([]); // References to card elements for intersection observer
-  const [visible, setVisible] = useState([]); // Track which cards are visible
-  const [selectedTab, setSelectedTab] = useState(0); // Track selected tab in featured section
-
-
-  // Handle card expansion in grid view
-  const handleCardClick = (index) => {
-    setActiveCard(activeCard === index ? null : index);
-  };
+  const [selectedTab, setSelectedTab] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const headerRef = useRef(null);
+  const tabRefs = useRef([]);
 
   useEffect(() => {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // Stagger animation for each tab
-        setTimeout(() => {
-          entry.target.classList.add('animate-in');
-        }, index * 100);
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const updateIndicator = () => {
+      const activeTab = tabRefs.current[selectedTab];
+      if (activeTab) {
+        setIndicatorStyle({
+          left: activeTab.offsetLeft,
+          width: activeTab.offsetWidth
+        });
       }
-    });
-  }, observerOptions);
+    };
 
-
-  // Observe all tabs
-  const tabs = document.querySelectorAll('.services-tab');
-  tabs.forEach(tab => observer.observe(tab));
-
-  return () => observer.disconnect();
-}, []);
+    updateIndicator();
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [selectedTab]);
 
   return (
     <section className="services-section-enhanced" id="services">
       <div className="services-container-enhanced">
         
-        {/* ============== HEADER SECTION ============== */}
-        <div className="services-header">
-          <h2 className="services-main-title">What we Offer</h2>
+        {/* ============== ENHANCED HEADER SECTION ============== */}
+        <div 
+          ref={headerRef}
+          className={`services-header ${isVisible ? 'services-header-visible' : ''}`}
+        >
+          <div className="services-header-badge">
+            <span className="services-badge-dot"></span>
+            <span className="services-badge-text">Our Services</span>
+          </div>
+          
+          <h2 className="services-main-title">
+            <span className="services-title-line">Comprehensive Financial</span>
+            <span className="services-title-line services-title-highlight">Solutions for Growth</span>
+          </h2>
+          
           <p className="services-main-subtitle">
-            Strategic capital advisory and transaction support tailored to accelerate your business growth and optimize financial performance.
+            Strategic capital advisory and transaction support tailored to accelerate 
+            <span className="services-subtitle-highlight"> your business growth</span> and optimize financial performance
           </p>
+
+          <div className="services-header-decoration">
+            <div className="services-decoration-line"></div>
+            <div className="services-decoration-dot"></div>
+            <div className="services-decoration-line"></div>
+          </div>
         </div>
 
         {/* ============== TAB NAVIGATION ============== */}
         <div className="services-tab-container">
+          <div 
+            className="services-tab-slider"
+            style={{
+              left: `${indicatorStyle.left}px`,
+              width: `${indicatorStyle.width}px`,
+              borderBottom: `3px solid ${services[selectedTab].color}`
+            }}
+          />
           {services.map((service, idx) => (
             <button
               key={idx}
+              ref={(el) => (tabRefs.current[idx] = el)}
               className={`services-tab ${selectedTab === idx ? 'services-tab-active' : ''}`}
-              style={{ borderBottom: selectedTab === idx ? `3px solid ${service.color}` : '3px solid transparent' }}
+              style={{ 
+                '--tab-color': service.color
+              }}
               onClick={() => setSelectedTab(idx)}
-              onMouseEnter={() => setHoveredCard(idx)}
-              onMouseLeave={() => setHoveredCard(null)}
             >
               <span className="services-tab-text">{service.title}</span>
             </button>
@@ -132,7 +159,10 @@ function ServicesSection() {
         <div className="services-featured-card">
           <div 
             className="services-featured-content"
-            style={{ borderLeft: `5px solid ${services[selectedTab].color}` }}
+            style={{ 
+              borderLeft: `5px solid ${services[selectedTab].color}`,
+              '--service-color': services[selectedTab].color
+            }}
           >
             <div className="services-featured-header">
               <div>

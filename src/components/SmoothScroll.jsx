@@ -1,56 +1,78 @@
+// src/components/SmoothScroll.jsx
 import { useEffect } from 'react';
 
-function SmoothScroll() {
+const SmoothScroll = () => {
   useEffect(() => {
-    // Locomotive Scroll alternative - Pure CSS/JS implementation
-    let scrollY = window.scrollY;
-    let targetScrollY = scrollY;
-    let currentScrollY = scrollY;
-
-    const smoothScroll = () => {
-      targetScrollY = window.scrollY;
-      currentScrollY += (targetScrollY - currentScrollY) * 0.1; // Easing factor
-
-      // Apply transform to body for smooth effect
-      document.body.style.transform = `translateY(${scrollY - currentScrollY}px)`;
-
-      if (Math.abs(targetScrollY - currentScrollY) > 0.5) {
-        requestAnimationFrame(smoothScroll);
+    // Hero continuous parallax
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const hero = document.querySelector('.hero-section');
+      
+      if (hero) {
+        const heroHeight = hero.offsetHeight;
+        const scrollPercent = Math.min(scrolled / heroHeight, 1);
+        
+        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        hero.style.opacity = Math.max(1 - scrollPercent * 1.5, 0);
       }
     };
 
-    // Parallax effect on scroll
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      
-      // Parallax for hero section
-      const hero = document.querySelector('.hero-minimal');
-      if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-      }
+    // Intersection Observer for Services and Highlights with proper reset
+    const observerOptions = {
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5], // Multiple thresholds for better detection
+      rootMargin: '-10% 0px -10% 0px' // Trigger earlier
+    };
 
-      // Fade in sections on scroll
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
-        
-        if (isVisible) {
-          section.classList.add('section-visible');
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Section is visible - animate in
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        } else {
+          // Section is out of view - reset for re-animation
+          entry.target.style.opacity = '0';
+          entry.target.style.transform = 'translateY(80px)';
+          entry.target.style.transition = 'none'; // Remove transition during reset
+          
+          // Re-enable transition after a brief moment
+          setTimeout(() => {
+            entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+          }, 50);
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe sections
+    const servicesSection = document.querySelector('.services-section-enhanced');
+    const highlightsSection = document.querySelector('.highlights-bg');
+
+    if (servicesSection) {
+      servicesSection.style.opacity = '0';
+      servicesSection.style.transform = 'translateY(80px)';
+      observer.observe(servicesSection);
+    }
+
+    if (highlightsSection) {
+      highlightsSection.style.opacity = '0';
+      highlightsSection.style.transform = 'translateY(80px)';
+      observer.observe(highlightsSection);
+    }
+
+    // Add scroll listener for hero
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      // window.removeEventListener('scroll', smoothScroll);
+      observer.disconnect();
     };
   }, []);
 
   return null;
-}
+};
 
 export default SmoothScroll;
