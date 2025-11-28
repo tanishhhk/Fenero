@@ -201,10 +201,6 @@
   opacity: 0.05;
 }
 
-.services-tab-active {
-  /* No background needed - slider handles it */
-}
-
 .services-tab-active::before {
   opacity: 0;
 }
