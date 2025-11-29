@@ -22,7 +22,7 @@ function Navbar() {
         <a href="#">Borrower</a>
         <a href="#">Lender</a>
         <a href="#">Partner</a>
-        <a href="#">Due Diligence</a>
+        {/* <a href="#">Due Diligence</a> */}
       </div>
 
       <div className="new-actions">

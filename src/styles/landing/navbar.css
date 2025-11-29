@@ -5,8 +5,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 20px 20px;
-  background: #ffffff;
-  color: black;
+  background: #d4e4ff;
   border-color: #000;
 }
 
@@ -55,24 +54,76 @@
   flex-shrink: 0;
 }
 
+
 .login-btn {
-  background: linear-gradient(to right, #44a7ff, #0d2940);
+  position: relative;
+  background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  color: white;
+  font-size: 20px;
+  color: black;
+  padding: 4px 0;
+  transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Underline animation (hidden by default) */
+.login-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #0d2940;
+  transition: width 0.3s ease;
+}
+
+.login-btn:hover {
+  color: #102fdcf1;
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.login-btn:hover::after {
+  width: 100%;
 }
 
 .cta-btn {
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 6px;
-  background: linear-gradient(to right, #44a7ff, #0d2940);
+  background: linear-gradient(90deg, #0a1a2f, #0056d2);
   color: white;
   font-size: 16px;
   white-space: nowrap;
+  transition: transform 0.25s ease;
 }
+
+.cta-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 1.2s ease;
+}
+
+.cta-btn:hover::after {
+  left: 150%;
+}
+
+
 
 @media (min-width: 1440px) {
   .navbar {
