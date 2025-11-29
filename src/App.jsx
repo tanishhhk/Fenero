@@ -1,4 +1,3 @@
-// src/App.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
 import AuthPage from "./components/AuthPage";
 import HeroSection from "./components/HeroSection";
@@ -14,7 +13,6 @@ function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
 
-  // Apply background gradient only to home page
   useEffect(() => {
     if (isAuthPage) {
       document.body.style.background = 'none';
@@ -30,7 +28,6 @@ function App() {
       {!isAuthPage && <SmoothScroll />}
       
       <Routes>
-        {/* Home Route */}
         <Route 
           path="/" 
           element={
@@ -47,7 +44,6 @@ function App() {
           }
         />
 
-        {/* Auth Route - completely standalone */}
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </>

@@ -51,10 +51,10 @@ const Footer = () => {
         <div className="footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#services">Debt Structuring</a></li>
-            <li><a href="#services">Financial Advisory</a></li>
-            <li><a href="#services">Risk Management</a></li>
-            <li><a href="#services">Corporate Finance</a></li>
+            <li><a href="#services">Debt Syndication</a></li>
+            <li><a href="#services">Debt Resolution</a></li>
+            <li><a href="#services">Investment Banking</a></li>
+            <li><a href="#services">Balance Sheet Optimization/Virtual CFO</a></li>
           </ul>
         </div>
 
@@ -88,11 +88,17 @@ const Footer = () => {
         <div className="footer-bottom-content">
           <p>© 2025 Fenero. All rights reserved.</p>
           <div className="footer-legal">
-            <a href="#privacy">Privacy Policy</a>
+            <a href="/pdfs/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">
+              Privacy Policy
+            </a>
             <span className="separator">•</span>
-            <a href="#terms">Terms of Service</a>
+            <a href="/pdfs/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer">
+              Terms of Service
+            </a>
             <span className="separator">•</span>
-            <a href="#disclaimer">Disclaimer</a>
+            <a href="/pdfs/disclaimer.pdf" target="_blank" rel="noopener noreferrer">
+              Disclaimer
+            </a>
           </div>
         </div>
       </div>

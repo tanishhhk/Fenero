@@ -47,7 +47,7 @@ const services = [
     color: "#ff6d00"
   },
   {
-    title: "Balance Sheet Optimization",
+    title: "Virtual CFO",
     tagline: "Maximize Financial Efficiency",
     desc: "Strategic enhancement of capital structure to maximize financial efficiency, reduce costs, and improve overall business performance.",
     points: [
