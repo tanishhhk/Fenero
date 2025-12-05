@@ -27,7 +27,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 50px;
   flex-wrap: wrap;
   justify-content: center;
 }
