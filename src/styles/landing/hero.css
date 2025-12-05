@@ -193,6 +193,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 100px; /* Add extra spacing from navbar */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 110px;
+  }
+}
+
 /* CTA Actions */
 .hero-actions {
   display: flex;

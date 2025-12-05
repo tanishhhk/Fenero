@@ -17,7 +17,19 @@ button:active {
 }
 
 .hero-bg-wrapper {
-  padding-top: 60px;
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-wrapper {
+    padding-top: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-bg-wrapper {
+    padding-top: 100px;
+  }
 }
 
 .page-wrapper {
