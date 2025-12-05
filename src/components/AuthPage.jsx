@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Add these imports
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../styles/landing/AuthPage.css"
 
 const AuthPage = () => {
-  const location = useLocation(); // Get state from navigation
-  const navigate = useNavigate(); // For navigation
+  const location = useLocation();
+  const navigate = useNavigate();
   
-  const [step, setStep] = useState('role'); // 'role', 'auth'
+  const [step, setStep] = useState('role');
   const [selectedRole, setSelectedRole] = useState(null);
-  const [authMode, setAuthMode] = useState('login'); // 'login', 'signup'
+  const [authMode, setAuthMode] = useState('login');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    password: '',
-    confirmPassword: '',
     company: '',
     designation: ''
   });
 
-  // Auto-set mode based on navigation state
   useEffect(() => {
     if (location.state?.mode) {
       setAuthMode(location.state.mode);
       
-      // If coming from consultation, skip role selection and go straight to signup
       if (location.state.fromConsultation) {
-        setSelectedRole('borrower'); // Default role for consultation
+        setSelectedRole('borrower');
         setStep('auth');
       }
     }
@@ -37,25 +33,13 @@ const AuthPage = () => {
       id: 'borrower',
       title: 'Borrower',
       subtitle: 'Seeking Capital',
-      description: 'Access debt syndication, working capital loans, and strategic financing solutions',
-      icon: '💼',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-    },
-    {
-      id: 'lender',
-      title: 'Lender',
-      subtitle: 'Capital Provider',
-      description: 'Connect with pre-vetted borrowers and diversify your lending portfolio',
-      icon: '🏦',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      description: 'Access debt syndication, working capital loans, and strategic financing solutions'
     },
     {
       id: 'partner',
       title: 'Partner',
       subtitle: 'Strategic Collaboration',
-      description: 'Join our network of financial advisors, consultants, and industry experts',
-      icon: '🤝',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      description: 'Join our network of financial advisors, consultants, and industry experts'
     }
   ];
 
@@ -74,9 +58,6 @@ const AuthPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', { role: selectedRole, mode: authMode, data: formData });
-    // Add your authentication logic here
-    // Example: Call your API endpoint
-    // fetch('/api/auth', { method: 'POST', body: JSON.stringify({ ...formData, role: selectedRole }) })
   };
 
   const resetToRoleSelection = () => {
@@ -86,28 +67,19 @@ const AuthPage = () => {
       name: '',
       email: '',
       phone: '',
-      password: '',
-      confirmPassword: '',
       company: '',
       designation: ''
     });
   };
 
   const goBackHome = () => {
-    navigate('/'); // Navigate back to home page
+    navigate('/');
   };
 
   return (
     <div className="auth-page">
-      {/* Background Elements */}
-      <div className="auth-bg-pattern"></div>
-      <div className="auth-gradient-orb orb-1"></div>
-      <div className="auth-gradient-orb orb-2"></div>
-      <div className="auth-gradient-orb orb-3"></div>
-
       <div className="auth-container">
         
-        {/* STEP 1: ROLE SELECTION */}
         {step === 'role' && (
           <div className="role-selection-wrapper">
             <button className="home-button" onClick={goBackHome}>
@@ -116,7 +88,7 @@ const AuthPage = () => {
             
             <div className="auth-header">
               <h1 className="auth-main-title">Welcome to Fenero</h1>
-              <p className="auth-main-subtitle">Choose your role to get started with our financial advisory platform</p>
+              <p className="auth-main-subtitle">Choose your role to get started</p>
             </div>
 
             <div className="roles-grid">
@@ -125,10 +97,8 @@ const AuthPage = () => {
                   key={role.id}
                   className="role-card"
                   onClick={() => handleRoleSelect(role.id)}
-                  style={{ '--card-gradient': role.gradient }}
                 >
                   <div className="role-card-inner">
-                    <div className="role-icon">{role.icon}</div>
                     <h3 className="role-title">{role.title}</h3>
                     <p className="role-subtitle">{role.subtitle}</p>
                     <p className="role-description">{role.description}</p>
@@ -140,7 +110,6 @@ const AuthPage = () => {
           </div>
         )}
 
-        {/* STEP 2: AUTH FORM */}
         {step === 'auth' && (
           <div className="auth-form-wrapper">
             <button className="back-button" onClick={resetToRoleSelection}>
@@ -148,19 +117,10 @@ const AuthPage = () => {
             </button>
 
             <div className="auth-form-container">
-              {/* Left Side - Branding */}
               <div className="auth-left">
                 <div className="auth-branding">
-                  <div 
-                    className="selected-role-badge"
-                    style={{ background: roles.find(r => r.id === selectedRole)?.gradient }}
-                  >
-                    <span className="badge-icon">
-                      {roles.find(r => r.id === selectedRole)?.icon}
-                    </span>
-                    <span className="badge-text">
-                      {roles.find(r => r.id === selectedRole)?.title}
-                    </span>
+                  <div className="selected-role-badge">
+                    {roles.find(r => r.id === selectedRole)?.title}
                   </div>
                   
                   <h2 className="auth-form-title">
@@ -174,22 +134,21 @@ const AuthPage = () => {
 
                   <div className="auth-features">
                     <div className="feature-item">
-                      <span className="feature-icon">✓</span>
+                      <span className="feature-bullet">•</span>
                       <span>Secure & Encrypted</span>
                     </div>
                     <div className="feature-item">
-                      <span className="feature-icon">✓</span>
+                      <span className="feature-bullet">•</span>
                       <span>Expert Advisory Support</span>
                     </div>
                     <div className="feature-item">
-                      <span className="feature-icon">✓</span>
+                      <span className="feature-bullet">•</span>
                       <span>Tailored Solutions</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side - Form */}
               <div className="auth-right">
                 <div className="auth-toggle">
                   <button
@@ -273,32 +232,6 @@ const AuthPage = () => {
                     </>
                   )}
 
-                  <div className="form-group">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="••••••••"
-                      value={formData.password}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-
-                  {authMode === 'signup' && (
-                    <div className="form-group">
-                      <label>Confirm Password</label>
-                      <input
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="••••••••"
-                        value={formData.confirmPassword}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  )}
-
                   {authMode === 'login' && (
                     <div className="form-extras">
                       <label className="remember-me">
@@ -341,7 +274,6 @@ const AuthPage = () => {
                     </svg>
                     LinkedIn
                   </button>
-                  
                 </div>
               </div>
             </div>

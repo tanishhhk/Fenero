@@ -195,7 +195,7 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 100px; /* Add extra spacing from navbar */
+    padding-top: 100px; 
   }
 }
 
