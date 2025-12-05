@@ -16,6 +16,9 @@ button:active {
     box-shadow: none;
 }
 
+.hero-bg-wrapper {
+  padding-top: 60px;
+}
 
 .page-wrapper {
   width: 100%;

@@ -7,6 +7,12 @@
   padding: 20px 20px;
   background: white;
   border-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .logo {
@@ -20,7 +26,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-    font-size: 24px;
+  font-size: 24px;
 }
 
 
@@ -30,6 +36,9 @@
   gap: 50px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -47,6 +56,7 @@
   white-space: nowrap;
   position: relative;
   display: inline-block;
+  line-height: 1.5;
 }
 
 .nav-links a::after {
@@ -159,6 +169,152 @@
   left: 150%;
 }
 
+/* Services Dropdown */
+.services-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.services-link {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(45deg, #0f1c2e, #0173e6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+  vertical-align: baseline;
+  height: auto;
+}
+
+.services-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0173e6, #0056d2);
+  transition: width 0.3s ease;
+}
+
+.services-link:hover {
+  opacity: 0.9;
+  background: none;
+  color: #000;
+  -webkit-text-fill-color: #000;
+}
+
+.services-link:hover::after {
+  width: 100%;
+  background: #0056d2;
+}
+
+.services-link.active {
+  color: #0056d2;
+  -webkit-text-fill-color: #0056d2;
+}
+
+.services-link.active::after {
+  width: 100%;
+  background: #0056d2;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+  display: inline;
+  margin-left: 4px;
+}
+
+.services-dropdown-wrapper.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border: 1px solid rgba(1, 115, 230, 0.2);
+  border-radius: 12px;
+  min-width: 220px;
+  margin-top: 12px;
+  box-shadow: 0 8px 24px rgba(1, 115, 230, 0.15);
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f1c2e;
+  transition: all 0.25s ease;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(135deg, #0173e6, #0056d2);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.dropdown-item:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(1, 115, 230, 0.1) 0%, rgba(1, 115, 230, 0.05) 100%);
+  color: #0173e6;
+  padding-left: 24px;
+}
+
+.dropdown-item:hover::before {
+  transform: scaleY(1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 @media (min-width: 1440px) {
@@ -181,6 +337,10 @@
   .nav-links a {
     font-size: 22px;
   }
+  
+  .services-link {
+    font-size: 22px;
+  }
 }
 
 /* Tablet and Small Desktop (768px to 1024px) */
@@ -199,6 +359,10 @@
   }
   
   .nav-links a {
+    font-size: 18px;
+  }
+  
+  .services-link {
     font-size: 18px;
   }
   
@@ -234,6 +398,10 @@
     font-size: 18px;
   }
   
+  .services-link {
+    font-size: 18px;
+  }
+  
   .new-actions {
     flex-direction: row;
     gap: 12px;
@@ -256,6 +424,10 @@
   }
   
   .nav-links a {
+    font-size: 16px;
+  }
+  
+  .services-link {
     font-size: 16px;
   }
   
