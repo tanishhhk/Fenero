@@ -45,6 +45,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0173e6, #0056d2);
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -52,6 +65,21 @@
   background: none;
   color: #000;
   -webkit-text-fill-color: #000;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  background: #0056d2;
+}
+
+.nav-links a.active {
+  color: #0056d2;
+  -webkit-text-fill-color: #0056d2;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+  background: #0056d2;
 }
 
 .new-actions {

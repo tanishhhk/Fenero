@@ -1,8 +1,16 @@
 import "../styles/landing/navbar.css"
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useLocation } from 'react-router-dom'; 
+import { useState, useEffect } from 'react';
 
 function Navbar() {
   const navigate = useNavigate(); 
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState('/');
+
+  useEffect(() => {
+    // Set active link based on current path
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
 
   const handleLogin = () => {
     navigate('/auth', { state: { mode: 'login' } });
@@ -12,16 +20,22 @@ function Navbar() {
     navigate('/auth', { state: { mode: 'signup' } });
   };
 
+  const isLinkActive = (href) => {
+    if (href === '/' && location.pathname === '/') return true;
+    if (href !== '/' && location.pathname.includes(href)) return true;
+    return false;
+  };
+
   return (
     <nav className="navbar">
       <div className="logo"><a href="/">Fenero</a></div>
 
       <div className="nav-links">
-        <a href="/">Home</a>
-        <a href="#">About Us</a>
-        <a href="services">Services</a>
-        <a href="#">Borrower</a>
-        <a href="#">Partner</a>
+        <a href="/" className={isLinkActive('/') ? 'active' : ''}>Home</a>
+        <a href="#" className={isLinkActive('#') ? 'active' : ''}>About Us</a>
+        <a href="services" className={isLinkActive('services') ? 'active' : ''}>Services</a>
+        <a href="#" className={isLinkActive('#') ? 'active' : ''}>Borrower</a>
+        <a href="#" className={isLinkActive('#') ? 'active' : ''}>Partner</a>
         {/* <a href="#">Due Diligence</a> */}
       </div>
 
