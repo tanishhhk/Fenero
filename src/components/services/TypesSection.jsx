@@ -1,10 +1,12 @@
 // src/components/services/TypesSection.jsx
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/services/TypesSection.css';
 
 const TypesSection = ({ types }) => {
   const sectionRef = useRef(null);
   const [visibleCards, setVisibleCards] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,6 +27,10 @@ const TypesSection = ({ types }) => {
     return () => observer.disconnect();
   }, [types]);
 
+  const handleCardClick = () => {
+    navigate('/auth', { state: { mode: 'signup' } });
+  };
+
   return (
     <section className="types-section-v2" ref={sectionRef}>
       <div className="section-header-v2">
@@ -44,6 +50,7 @@ const TypesSection = ({ types }) => {
             data-index={index}
             className={`type-card-v2 ${visibleCards.includes(index) ? 'visible' : ''}`}
             style={{ transitionDelay: `${index * 0.1}s` }}
+            onClick={handleCardClick}
           >
             <div className="card-number">{String(index + 1).padStart(2, '0')}</div>
             
