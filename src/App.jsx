@@ -1,5 +1,6 @@
 // src/App.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
+import AdminDashboard from './components/AdminDashboard';
 import { useEffect } from "react";
 import AuthPage from "./components/AuthPage";
 import HeroSection from "./components/landing/HeroSection";
@@ -54,7 +55,7 @@ function App() {
 
         {/* Auth Page Route */}
         <Route path="/auth" element={<AuthPage />} />
-        
+        <Route path="/admin" element={<AdminDashboard />} />
         {/* Services Page Route - handles both /services and /services/:serviceType */}
         <Route path="/services/:serviceType?" element={<ServicesPage />} />
       </Routes>
