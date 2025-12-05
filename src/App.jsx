@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import Consult from "./components/landing/Consult";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
-import ServicesPage from "./pages/ServicesPage";
+import ServicesPage from "./pages/services";
 
 function App() {
   const location = useLocation();
