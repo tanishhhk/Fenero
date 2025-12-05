@@ -212,7 +212,7 @@
 }
 
 .services-tab-active::before {
-  opacity: 0;
+  opacity: 0.1;
 }
 
 .services-tab-text {
@@ -228,6 +228,11 @@
 .services-tab:hover .services-tab-text {
   color: #ffffff;
   transform: translateY(-2px);
+}
+
+.services-tab-active .services-tab-text {
+  color: #ffffff;
+  font-weight: 700;
 }
 
 /* FEATURED CARD */
@@ -519,8 +524,12 @@
     margin-bottom: 24px;
   }
   
+  .services-title-line {
+    display: block;
+  }
+  
   .services-badge-text {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .services-header-badge {
@@ -539,18 +548,45 @@
     padding: 0 10px;
   }
   
+  /* Card-based mobile navigation */
   .services-tab-container {
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     margin-bottom: 40px;
+    border-bottom: none;
+  }
+  
+  .services-tab-slider {
+    display: none;
   }
   
   .services-tab {
-    padding: 14px 24px;
-    margin: 0 2px;
+    padding: 16px;
+    margin: 0;
+    background: rgba(30, 41, 59, 0.4);
+    border: 2px solid #334155;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .services-tab::before {
+    border-radius: 12px;
+  }
+  
+  .services-tab-active {
+    border-color: var(--tab-color);
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .services-tab-active::before {
+    opacity: 0.15;
   }
   
   .services-tab-text {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .services-featured-content {
@@ -624,13 +660,17 @@
   }
   
   .services-main-title {
-    font-size: 36px;
+    font-size: 32px;
     margin-bottom: 20px;
     letter-spacing: -0.02em;
   }
   
+  .services-title-line {
+    display: block;
+  }
+  
   .services-badge-text {
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 1px;
   }
   
@@ -641,30 +681,22 @@
   }
   
   .services-main-subtitle {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
   }
   
-  .services-title-line {
-    display: inline;
-  }
-  
   .services-tab-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
     margin-bottom: 32px;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
   }
   
   .services-tab {
-    padding: 12px 20px;
-    margin: 0;
-    flex-shrink: 0;
+    padding: 14px;
   }
   
   .services-tab-text {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .services-featured-content {
@@ -678,7 +710,7 @@
   }
   
   .services-featured-title {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 8px;
   }
   
@@ -687,7 +719,7 @@
   }
   
   .services-featured-desc {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
     margin-bottom: 24px;
   }
@@ -744,12 +776,12 @@
   }
   
   .services-main-title {
-    font-size: 30px;
+    font-size: 28px;
     margin-bottom: 16px;
   }
   
   .services-badge-text {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.5px;
   }
   
@@ -759,11 +791,15 @@
   }
   
   .services-main-subtitle {
-    font-size: 15px;
+    font-size: 14px;
+  }
+  
+  .services-tab-container {
+    gap: 8px;
   }
   
   .services-tab {
-    padding: 10px 16px;
+    padding: 12px;
   }
   
   .services-tab-text {
@@ -776,7 +812,7 @@
   }
   
   .services-featured-title {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .services-featured-tagline {
@@ -784,7 +820,7 @@
   }
   
   .services-featured-desc {
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 20px;
   }
   
@@ -830,15 +866,23 @@
 /* Mobile Extra Small (up to 360px) */
 @media (max-width: 360px) {
   .services-main-title {
-    font-size: 26px;
+    font-size: 24px;
   }
   
   .services-badge-text {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .services-main-subtitle {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  
+  .services-tab {
+    padding: 10px;
+  }
+  
+  .services-tab-text {
+    font-size: 13px;
   }
   
   .services-featured-content {
@@ -846,11 +890,7 @@
   }
   
   .services-featured-title {
-    font-size: 20px;
-  }
-  
-  .services-tab-text {
-    font-size: 13px;
+    font-size: 18px;
   }
   
   .services-cta-button {

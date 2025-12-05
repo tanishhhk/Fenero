@@ -347,7 +347,6 @@
 
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -356,11 +355,13 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 98;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .mobile-menu-overlay.open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Mobile Sidebar Menu */
@@ -562,11 +563,6 @@
   /* Show hamburger menu */
   .hamburger-menu {
     display: flex;
-  }
-  
-  /* Show mobile menu overlay when open */
-  .mobile-menu-overlay {
-    display: block;
   }
 }
 
