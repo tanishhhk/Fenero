@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../styles/landing/ServicesSection.css";
+import "../../styles/landing/ServicesSection.css";
 
 // Services data with comprehensive information
 const services = [
@@ -8,15 +8,15 @@ const services = [
     tagline: "Capital That Fuels Growth",
     desc: "End-to-end debt capital arrangement designed to fuel sustainable business expansion with strategic financial partnerships.",
     points: [
-"Loan Against Property - Raise capital by pledging commercial or residential property.",
-"Working Capital Loans - Short-term funding to manage daily business expenses and cash flow.",
-"Supply Chain Financing - Improve vendor payments and receivables by using credit linked to supply chain transactions.",
-"Revenue-Based Financing - Flexible funding that is repaid as a percentage of future sales, not fixed EMIs.",
-"Asset Financing - Loans for purchasing or leveraging machinery, equipment, or other physical assets.",
-"Trade Finance - Funding support for domestic or international buying and selling of goods.",
-"Unsecured Business Loans - Business loans without collateral, given on the basis of credit and cash flow strength.",
-"Project Financing - Long-term funding for large projects, backed by projected future cash flows.",
-"Domestic and Export Factoring - Get immediate cash by selling invoices, improving working capital and reducing payment delays."
+    "Loan Against Property - Raise capital by pledging commercial or residential property.",
+    "Working Capital Loans - Short-term funding to manage daily business expenses and cash flow.",
+    "Supply Chain Financing - Improve vendor payments and receivables by using credit linked to supply chain transactions.",
+    "Revenue-Based Financing - Flexible funding that is repaid as a percentage of future sales, not fixed EMIs.",
+    "Asset Financing - Loans for purchasing or leveraging machinery, equipment, or other physical assets.",
+    "Trade Finance - Funding support for domestic or international buying and selling of goods.",
+    "Unsecured Business Loans - Business loans without collateral, given on the basis of credit and cash flow strength.",
+    "Project Financing - Long-term funding for large projects, backed by projected future cash flows.",
+    "Domestic and Export Factoring - Get immediate cash by selling invoices, improving working capital and reducing payment delays."
     ],
     color: "#0066ff"
   },
@@ -175,6 +175,7 @@ function ServicesSection() {
             <button 
               className="services-cta-button"
               style={{ backgroundColor: services[selectedTab].color }}
+              onClick={() => navigate(`/services/${services[selectedTab].title.toLowerCase().replace(/ /g, '-')}`)}
             >
               Learn More About {services[selectedTab].title}
               <span className="services-arrow">→</span>

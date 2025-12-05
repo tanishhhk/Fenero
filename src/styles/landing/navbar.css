@@ -5,16 +5,24 @@
   justify-content: space-around;
   align-items: center;
   padding: 20px 20px;
-  background: #d4e4ff;
+  background: white;
   border-color: #000;
 }
 
 .logo {
-  font-size: 22px;
   font-weight: bold;
   color: #000;
   flex-shrink: 0;
 }
+
+.logo a {
+  background: linear-gradient(125deg, #0d00fa, #f20000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+    font-size: 24px;
+}
+
 
 .nav-links {
   list-style: none;

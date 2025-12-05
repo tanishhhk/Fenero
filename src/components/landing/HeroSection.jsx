@@ -1,4 +1,4 @@
-import "../styles/landing/hero.css";
+import "../../styles/landing/hero.css";
 import { useState, useEffect, useRef } from 'react';
 
 function HeroSection() {

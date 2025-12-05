@@ -14,13 +14,13 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo"><a href="">Fenero</a></div>
+      <div className="logo"><a href="/">Fenero</a></div>
 
       <div className="nav-links">
+        <a href="/">Home</a>
         <a href="#">About Us</a>
-        <a href="#">Services</a>
+        <a href="services">Services</a>
         <a href="#">Borrower</a>
-        <a href="#">Lender</a>
         <a href="#">Partner</a>
         {/* <a href="#">Due Diligence</a> */}
       </div>

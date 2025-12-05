@@ -2,6 +2,8 @@ body {
   margin: 0;
   padding: 0;
   color: black;
+  background: linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a);
+  background-attachment: fixed;
 }
 
 .html{
@@ -55,14 +57,6 @@ button:active {
   }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a);
-  background-attachment: fixed;
-  color: #ffffff;
-}
-
 /* Ensure your main app container doesn't override */
 #root {
   background: transparent;
@@ -110,7 +104,6 @@ section.section-visible {
   transform: translateY(0);
 }
 
-/* Smooth transitions for all interactive elements */
 * {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }

@@ -1,0 +1,241 @@
+/* src/styles/services/ServicesHero.css */
+
+.services-hero-v2 {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 160px 40px 120px;
+}
+
+/* Parallax Background */
+.hero-parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(3, 105, 161, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 105, 161, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+.hero-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #0ea5e9, transparent);
+  top: -250px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #0369a1, transparent);
+  bottom: -200px;
+  left: -50px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+/* Content Wrapper */
+.hero-content-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.services-hero-v2.animate-in .hero-content-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Breadcrumb */
+.hero-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 105, 161, 0.2);
+  border-radius: 50px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0369a1;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(3, 105, 161, 0.1);
+}
+
+.hero-breadcrumb svg {
+  opacity: 0.4;
+}
+
+.breadcrumb-current {
+  color: #0c4a6e;
+}
+
+/* Main Title */
+.hero-main-title {
+  font-size: 78px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 40px;
+  color: #0c4a6e;
+}
+
+.title-line {
+  display: inline-block;
+  background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0ea5e9 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  animation: titleShimmer 4s ease-in-out infinite;
+}
+
+@keyframes titleShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Subtitle Box */
+.hero-subtitle-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.subtitle-accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0369a1, #0ea5e9);
+  border-radius: 2px;
+}
+
+.hero-subtitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: #0369a1;
+  margin: 0;
+}
+
+/* Description */
+.hero-description {
+  font-size: 19px;
+  line-height: 1.8;
+  color: #334155;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-hero-v2 {
+    padding: 140px 30px 100px;
+    min-height: 75vh;
+  }
+  
+  .hero-main-title {
+    font-size: 64px;
+  }
+  
+  .hero-subtitle {
+    font-size: 22px;
+  }
+  
+  .hero-description {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero-v2 {
+    padding: 120px 20px 80px;
+    min-height: auto;
+  }
+  
+  .hero-main-title {
+    font-size: 48px;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+  
+  .hero-subtitle-box {
+    gap: 16px;
+  }
+  
+  .subtitle-accent-line {
+    width: 50px;
+    height: 2px;
+  }
+  
+  .hero-subtitle {
+    font-size: 20px;
+  }
+  
+  .hero-description {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero-v2 {
+    padding: 100px 16px 60px;
+  }
+  
+  .hero-main-title {
+    font-size: 40px;
+  }
+  
+  .hero-subtitle-box {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .subtitle-accent-line {
+    width: 40px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-description {
+    font-size: 16px;
+  }
+  
+  .hero-breadcrumb {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+}

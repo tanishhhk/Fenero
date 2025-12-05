@@ -341,6 +341,7 @@ const AuthPage = () => {
                     </svg>
                     LinkedIn
                   </button>
+                  
                 </div>
               </div>
             </div>

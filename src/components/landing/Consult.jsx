@@ -1,4 +1,4 @@
-import "../styles/landing/consult.css"
+import "../../styles/landing/consult.css"
 import { useNavigate } from 'react-router-dom'; // Add this import
 
 function Consult() {

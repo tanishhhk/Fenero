@@ -1,5 +1,5 @@
-import "../styles/landing/highlights.css"
-import financeIllustration from "../assets/finance-illustration.png";
+import "../../styles/landing/highlights.css"
+import financeIllustration from "../../assets/finance-illustration.png";
 import { useEffect, useRef } from "react";
 
 const HIGHLIGHTS = [

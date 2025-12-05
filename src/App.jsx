@@ -1,33 +1,41 @@
+// src/App.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import AuthPage from "./components/AuthPage";
-import HeroSection from "./components/HeroSection";
-import HighlightsSection from "./components/HighlightsSection";
-import ServicesSection from "./components/ServicesSection";
+import HeroSection from "./components/landing/HeroSection";
+import HighlightsSection from "./components/landing/HighlightsSection";
+import ServicesSection from "./components/landing/ServicesSection";
 import Navbar from "./components/Navbar";
-import Consult from "./components/Consult";
+import Consult from "./components/landing/Consult";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
-import { useEffect } from "react";
+import ServicesPage from "./pages/ServicesPage";
 
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
+  const isServicesPage = location.pathname.startsWith('/services');
 
   useEffect(() => {
     if (isAuthPage) {
       document.body.style.background = 'none';
       document.body.style.backgroundColor = '#0a0e27';
+    } else if (isServicesPage) {
+      // Let ServicesPage handle its own background
+      document.body.style.background = 'none';
+      document.body.style.backgroundColor = 'transparent';
     } else {
       document.body.style.background = 'linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a)';
       document.body.style.backgroundAttachment = 'fixed';
     }
-  }, [isAuthPage]);
+  }, [isAuthPage, isServicesPage]);
 
   return (
     <>
-      {!isAuthPage && <SmoothScroll />}
+      {!isAuthPage && !isServicesPage && <SmoothScroll />}
       
       <Routes>
+        {/* Home Page Route */}
         <Route 
           path="/" 
           element={
@@ -44,7 +52,11 @@ function App() {
           }
         />
 
+        {/* Auth Page Route */}
         <Route path="/auth" element={<AuthPage />} />
+        
+        {/* Services Page Route - handles both /services and /services/:serviceType */}
+        <Route path="/services/:serviceType?" element={<ServicesPage />} />
       </Routes>
     </>
   );
