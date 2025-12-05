@@ -127,6 +127,46 @@ def send_notification_email(user_data):
     except Exception as e:
         print(f"Email notification failed: {str(e)}")
         return False
+    
+#Add login route ( validation )
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        email = data.get('email', '').strip()
+        if not email:
+            return jsonify({"error": "Email is required"}), 400
+        
+        if not is_valid_email(email):
+            return jsonify({"error": "Invalid email format"}), 400
+        
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        
+        c.execute('SELECT id, name, role FROM users WHERE email = ?', (email,))
+        user = c.fetchone()
+        conn.close()
+        
+        if not user:
+            return jsonify({"error": "No account found with this email"}), 404
+        
+        return jsonify({
+            "message": "Login successful",
+            "user": {
+                "id": user[0],
+                "name": user[1],
+                "email": email,
+                "role": user[2]
+            }
+        }), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 def send_welcome_email(user_email, user_name):
     """Send welcome email to new user"""
