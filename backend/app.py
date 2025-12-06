@@ -10,6 +10,7 @@ import pandas as pd
 from io import BytesIO
 import os
 from dotenv import load_dotenv
+import threading
 
 load_dotenv()
 
@@ -47,6 +48,19 @@ def init_db():
 def is_valid_email(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return re.match(pattern, email) is not None
+
+def send_emails_async(user_data):
+    """Send emails in background thread to avoid blocking"""
+    def send_in_background():
+        try:
+            send_notification_email(user_data)
+            send_welcome_email(user_data['email'], user_data['name'])
+        except Exception as e:
+            print(f"Background email error: {str(e)}")
+    
+    thread = threading.Thread(target=send_in_background)
+    thread.daemon = True
+    thread.start()
 
 def send_notification_email(user_data):
     """Send email to owners when new user signs up"""
@@ -127,46 +141,6 @@ def send_notification_email(user_data):
     except Exception as e:
         print(f"Email notification failed: {str(e)}")
         return False
-    
-#Add login route ( validation )
-
-@app.route('/api/login', methods=['POST'])
-def login():
-    try:
-        data = request.get_json()
-        if not data:
-            return jsonify({"error": "No data provided"}), 400
-        
-        email = data.get('email', '').strip()
-        if not email:
-            return jsonify({"error": "Email is required"}), 400
-        
-        if not is_valid_email(email):
-            return jsonify({"error": "Invalid email format"}), 400
-        
-        conn = sqlite3.connect('users.db')
-        c = conn.cursor()
-        
-        c.execute('SELECT id, name, role FROM users WHERE email = ?', (email,))
-        user = c.fetchone()
-        conn.close()
-        
-        if not user:
-            return jsonify({"error": "No account found with this email"}), 404
-        
-        return jsonify({
-            "message": "Login successful",
-            "user": {
-                "id": user[0],
-                "name": user[1],
-                "email": email,
-                "role": user[2]
-            }
-        }), 200
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 
 def send_welcome_email(user_email, user_name):
     """Send welcome email to new user"""
@@ -189,21 +163,21 @@ def send_welcome_email(user_email, user_name):
                     
                     <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2980b9;">
                         <p style="margin: 0; color: #1e3a5f; font-size: 16px; line-height: 1.6;">
-                            <strong>Account Created Successfully</strong><br/>
+                            ✅ <strong>Account Created Successfully</strong><br/>
                             Your registration has been received and our team has been notified.
                         </p>
                     </div>
                     
                     <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2980b9;">
                         <p style="margin: 0; color: #1e3a5f; font-size: 16px; line-height: 1.6;">
-                            <strong>We'll Contact You Soon</strong><br/>
+                            📞 <strong>We'll Contact You Soon</strong><br/>
                             One of our financial experts will reach out within 24-48 hours to discuss your needs.
                         </p>
                     </div>
                     
                     <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2980b9;">
                         <p style="margin: 0; color: #1e3a5f; font-size: 16px; line-height: 1.6;">
-                            <strong>Tailored Solutions</strong><br/>
+                            💼 <strong>Tailored Solutions</strong><br/>
                             We'll work together to find the perfect financial solution for your business.
                         </p>
                     </div>
@@ -211,7 +185,7 @@ def send_welcome_email(user_email, user_name):
                 
                 <div style="text-align: center; padding: 20px; background: #e8f4f8; border-radius: 8px;">
                     <p style="margin: 0; color: #2c5f7f; font-size: 14px;">
-                        Have questions? Reply to this email or call us at <strong>+91 8130718822 </strong>
+                        Have questions? Reply to this email or call us at <strong>+91-XXXX-XXXXXX</strong>
                     </p>
                 </div>
                 
@@ -286,10 +260,10 @@ def signup():
                 'created_at': created_at
             }
             
-            # Send notifications
-            send_notification_email(user_data)
-            send_welcome_email(email, name)
+            # Send emails asynchronously (non-blocking)
+            send_emails_async(user_data)
             
+            # Return immediately without waiting for emails
             return jsonify({
                 "message": "Registration successful! Our team will contact you within 24-48 hours.",
                 "user_id": user_id,
@@ -403,9 +377,9 @@ def get_stats():
 if __name__ == '__main__':
     init_db()
     print("=" * 50)
-    print("Fenero API Server Starting...")
+    print("🚀 Fenero API Server Starting...")
     print("=" * 50)
-    print(f"Notifications will be sent to: {', '.join(OWNER_EMAILS)}")
-    print(f"Excel exports available at: /api/export-users")
+    print(f"📧 Notifications will be sent to: {', '.join(OWNER_EMAILS)}")
+    print(f"📊 Excel exports available at: /api/export-users")
     print("=" * 50)
     app.run(debug=True, host='0.0.0.0', port=5000)

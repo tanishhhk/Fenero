@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SmoothScroll from '../components/SmoothScroll';
 import servicesData from '../components/services/servicesData';
-
 import ServicesHero from '../components/services/ServicesHero';
 import ServicesTabs from '../components/services/ServicesTabs';
 import TypesSection from '../components/services/TypesSection';

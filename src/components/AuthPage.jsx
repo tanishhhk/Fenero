@@ -67,10 +67,6 @@ const AuthPage = () => {
     setSuccess('');
 
     try {
-
-      // ===========================
-      // SIGNUP
-      // ===========================
       if (authMode === 'signup') {
         const response = await fetch('http://localhost:5000/api/signup', {
           method: 'POST',
@@ -93,37 +89,14 @@ const AuthPage = () => {
           throw new Error(data.error || 'Signup failed');
         }
 
-        // Show success screen
+        // Show success screen (no auto-redirect)
         setShowSuccessScreen(true);
-        
-        // Redirect to home after 5 seconds
-        setTimeout(() => {
-          navigate('/');
-        }, 5000);
 
       } else {
-
-        // ===========================
-        // LOGIN (actual validation)
-        // ===========================
-        const response = await fetch('http://localhost:5000/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: formData.email,
-            role: selectedRole
-          })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || 'Login failed');
-        }
-
+        // LOGIN - Simulate for now
+        console.log('Login attempt:', formData.email);
         setSuccess('Login successful! Redirecting...');
-
-        // redirect after small delay
+        
         setTimeout(() => {
           navigate('/');
         }, 2000);
@@ -194,16 +167,11 @@ const AuthPage = () => {
             </div>
           </div>
 
-          <div className="success-redirect-info">
-            <div className="spinner"></div>
-            <p>Redirecting you to home page...</p>
-          </div>
-
           <button 
             className="success-home-button"
             onClick={goBackHome}
           >
-            Go to Home Now
+            Return to Home
           </button>
         </div>
       </div>
@@ -212,7 +180,6 @@ const AuthPage = () => {
 
   return (
     <div className="auth-page">
-
       {step === 'role' && (
         <button className="home-button" onClick={goBackHome}>
           ← Back to Home

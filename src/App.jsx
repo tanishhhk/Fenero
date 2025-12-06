@@ -11,29 +11,43 @@ import Consult from "./components/landing/Consult";
 import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
 import ServicesPage from "./pages/services";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
   const isServicesPage = location.pathname.startsWith('/services');
+  const isAboutPage = location.pathname === '/about';
+  const isAdminPage = location.pathname === '/admin';
 
   useEffect(() => {
+    // Reset all body styles first
+    document.body.style.background = '';
+    document.body.style.backgroundColor = '';
+    document.body.style.backgroundAttachment = '';
+
     if (isAuthPage) {
-      document.body.style.background = 'none';
       document.body.style.backgroundColor = '#0a0e27';
-    } else if (isServicesPage) {
-      // Let ServicesPage handle its own background
-      document.body.style.background = 'none';
-      document.body.style.backgroundColor = 'transparent';
+    } else if (isServicesPage || isAboutPage || isAdminPage) {
+      // These pages handle their own backgrounds
+      document.body.style.backgroundColor = '#0f172a';
     } else {
+      // Home page - restore the gradient
       document.body.style.background = 'linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a)';
       document.body.style.backgroundAttachment = 'fixed';
     }
-  }, [isAuthPage, isServicesPage]);
+
+    // Cleanup function to reset when component unmounts
+    return () => {
+      document.body.style.background = '';
+      document.body.style.backgroundColor = '';
+      document.body.style.backgroundAttachment = '';
+    };
+  }, [location.pathname]); // Use location.pathname instead of boolean checks
 
   return (
     <>
-      {!isAuthPage && !isServicesPage && <SmoothScroll />}
+      {!isAuthPage && !isServicesPage && !isAboutPage && !isAdminPage && <SmoothScroll />}
       
       <Routes>
         {/* Home Page Route */}
@@ -56,8 +70,12 @@ function App() {
         {/* Auth Page Route */}
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        {/* Services Page Route - handles both /services and /services/:serviceType */}
+        
+        {/* Services Page Route */}
         <Route path="/services/:serviceType?" element={<ServicesPage />} />
+        
+        {/* About Us Page Route */}
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </>
   );

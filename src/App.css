@@ -16,21 +16,13 @@ button:active {
     box-shadow: none;
 }
 
+/* REMOVE THE PADDING - This was causing the grey gap */
 .hero-bg-wrapper {
-  padding-top: 80px;
+  /* padding-top: 80px; REMOVED */
+  margin: 0;
+  padding: 0;
 }
 
-@media (max-width: 768px) {
-  .hero-bg-wrapper {
-    padding-top: 90px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-bg-wrapper {
-    padding-top: 100px;
-  }
-}
 
 .page-wrapper {
   width: 100%;
@@ -75,6 +67,8 @@ button:active {
 /* Ensure your main app container doesn't override */
 #root {
   background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 /* Optional: Make all sections inherit dark theme */
@@ -86,6 +80,8 @@ section {
 /* Smooth scroll behavior for entire page */
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 /* Optional: Custom scrollbar styling */

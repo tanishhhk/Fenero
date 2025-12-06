@@ -106,10 +106,10 @@ function Navbar() {
             )}
           </div>
           
-          <a href="#" className={isLinkActive('#') ? 'active' : ''}>Borrower</a>
-          <a href="#" className={isLinkActive('#') ? 'active' : ''}>Partner</a>
-          <a href="#" className={isLinkActive('#') ? 'active' : ''}>About Us</a>
-          <a href="#" className={isLinkActive('#') ? 'active' : ''}>Blogs</a>
+          <a href="auth" className={isLinkActive('#') ? 'active' : ''}>Borrower</a>
+          <a href="auth" className={isLinkActive('#') ? 'active' : ''}>Partner</a>
+          <a href="about" className={isLinkActive('#') ? 'active' : ''}>About Us</a>
+          <a href="/" className={isLinkActive('#') ? 'active' : ''}>Blogs</a>
         </div>
 
         <div className="new-actions">
@@ -164,7 +164,7 @@ function Navbar() {
           
           <a href="#">Borrower</a>
           <a href="#">Partner</a>
-          <a href="#">About Us</a>
+          <a href="about">About Us</a>
           <a href="#">Blogs</a>
         </div>
 

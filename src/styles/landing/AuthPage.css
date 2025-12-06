@@ -737,7 +737,6 @@
 .checkmark-svg {
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg);
 }
 
 .checkmark-circle {
@@ -760,11 +759,9 @@
 @keyframes checkmarkCircle {
   0% {
     stroke-dasharray: 0, 158;
-    transform: rotate(0deg);
   }
   100% {
     stroke-dasharray: 158, 158;
-    transform: rotate(360deg);
   }
 }
 

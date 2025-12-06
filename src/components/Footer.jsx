@@ -1,4 +1,5 @@
 import "../styles/landing/footer.css"
+import { Link } from "react-router-dom";
 import React from "react";
 
 const Footer = () => {
@@ -41,22 +42,22 @@ const Footer = () => {
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="services">Services</a></li>
-            <li><a href="#highlights">Highlights</a></li>
-            <li><a href="#consult">Consultation</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="auth">Contact</a></li>
           </ul>
         </div>
 
         {/* Services */}
-        <div className="footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#services">Debt Syndication</a></li>
-            <li><a href="#services">Debt Resolution</a></li>
-            <li><a href="#services">Investment Banking</a></li>
-            <li><a href="#services">Balance Sheet Optimization/Virtual CFO</a></li>
-          </ul>
-        </div>
+<div className="footer-links">
+  <h4>Our Services</h4>
+  <ul>
+    <li><a href="/services">Debt Syndication</a></li>
+    <li><a href="/services/debt-resolution">Debt Resolution</a></li>
+    <li><a href="/services/investment-banking">Investment Banking</a></li>
+    <li><a href="/services/virtual-cfo">Balance Sheet Optimization/Virtual CFO</a></li>
+  </ul>
+</div>
+
 
         {/* Contact & Newsletter */}
         <div className="footer-contact">
