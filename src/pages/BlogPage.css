@@ -65,7 +65,7 @@
   margin: auto;
   border-radius: 20px;
   padding: 40px 24px;
-  position: sticky;
+  position:static;
   top: 0;
   background: rgba(224, 242, 254, 0.95);
   backdrop-filter: blur(20px);
