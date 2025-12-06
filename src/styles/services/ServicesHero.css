@@ -1,12 +1,10 @@
-/* src/styles/services/ServicesHero.css */
-
 .services-hero-v2 {
   position: relative;
   min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   padding: 160px 40px 120px;
 }
 
@@ -39,8 +37,8 @@
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, #0ea5e9, transparent);
-  top: -250px;
-  right: -100px;
+  top: 50px;
+  right: 50px;
   animation-delay: 0s;
 }
 
@@ -48,8 +46,8 @@
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, #0369a1, transparent);
-  bottom: -200px;
-  left: -50px;
+  bottom: 50px;
+  left: 50px;
   animation-delay: 2s;
 }
 

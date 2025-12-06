@@ -1,4 +1,4 @@
-import "../styles/landing/footer.css"
+import "../styles/landing/footer.css";
 import { Link } from "react-router-dom";
 import React from "react";
 
@@ -40,10 +40,10 @@ const Footer = () => {
         <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="about">About Us</a></li>
-            <li><a href="auth">Contact</a></li>
+            <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link></li>
+            <li><Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Services</Link></li>
+            <li><Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About Us</Link></li>
+            <li><Link to="/auth" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Contact</Link></li>
           </ul>
         </div>
 
@@ -51,10 +51,10 @@ const Footer = () => {
 <div className="footer-links">
   <h4>Our Services</h4>
   <ul>
-    <li><a href="/services">Debt Syndication</a></li>
-    <li><a href="/services/debt-resolution">Debt Resolution</a></li>
-    <li><a href="/services/investment-banking">Investment Banking</a></li>
-    <li><a href="/services/virtual-cfo">Balance Sheet Optimization/Virtual CFO</a></li>
+    <li><Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Debt Syndication</Link></li>
+    <li><Link to="/services/debt-resolution" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Debt Resolution</Link></li>
+    <li><Link to="/services/investment-banking" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Investment Banking</Link></li>
+    <li><Link to="/services/virtual-cfo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Balance Sheet Optimization/Virtual CFO</Link></li>
   </ul>
 </div>
 

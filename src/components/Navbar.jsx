@@ -1,5 +1,5 @@
-import "../styles/landing/navbar.css"
-import { useNavigate, useLocation } from 'react-router-dom'; 
+import "../styles/landing/navbar.css";
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 function Navbar() {
@@ -77,11 +77,11 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <div className="logo"><a href="/">Fenero</a></div>
+        <div className="logo"><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Fenero</Link></div>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
-          <a href="/" className={isLinkActive('/') ? 'active' : ''}>Home</a>
+          <Link to="/" className={isLinkActive('/') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link>
 
           <div className="services-dropdown-wrapper" ref={dropdownRef}>
             <button 
@@ -106,10 +106,10 @@ function Navbar() {
             )}
           </div>
           
-          <a href="auth" className={isLinkActive('auth') ? 'active' : ''}>Borrower</a>
-          <a href="auth" className={isLinkActive('auth') ? 'active' : ''}>Partner</a>
-          <a href="about" className={isLinkActive('about') ? 'active' : ''}>About Us</a>
-          <a href="blog" className={isLinkActive('blog') ? 'active' : ''}>Blog</a>
+          <Link to="/auth" className={isLinkActive('auth') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Borrower</Link>
+          <Link to="/auth" className={isLinkActive('auth') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Partner</Link>
+          <Link to="/about" className={isLinkActive('about') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About Us</Link>
+          <Link to="/blog" className={isLinkActive('blog') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Blog</Link>
         </div>
 
         <div className="new-actions">
@@ -138,7 +138,7 @@ function Navbar() {
       {/* Mobile Sidebar Menu */}
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-links">
-          <a href="/" className={isLinkActive('/') ? 'active' : ''}>Home</a>
+          <Link to="/" className={isLinkActive('/') ? 'active' : ''} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link>
 
           <div className={`mobile-services-wrapper ${mobileServicesOpen ? 'open' : ''}`}>
             <button 
@@ -162,10 +162,10 @@ function Navbar() {
             </div>
           </div>
           
-          <a href="auth">Borrower</a>
-          <a href="auth">Partner</a>
-          <a href="about">About Us</a>
-          <a href="blog">Blog</a>
+          <Link to="/auth" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Borrower</Link>
+          <Link to="/auth" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Partner</Link>
+          <Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About Us</Link>
+          <Link to="/blog" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Blog</Link>
         </div>
 
         <div className="mobile-actions">
