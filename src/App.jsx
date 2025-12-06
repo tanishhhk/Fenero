@@ -12,12 +12,14 @@ import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
 import ServicesPage from "./pages/services";
 import AboutUs from "./pages/AboutUs";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
   const isServicesPage = location.pathname.startsWith('/services');
   const isAboutPage = location.pathname === '/about';
+  const isBlogPage = location.pathname === '/blog';
   const isAdminPage = location.pathname === '/admin';
 
   useEffect(() => {
@@ -28,9 +30,9 @@ function App() {
 
     if (isAuthPage) {
       document.body.style.backgroundColor = '#0a0e27';
-    } else if (isServicesPage || isAboutPage || isAdminPage) {
+    } else if (isServicesPage || isAboutPage || isBlogPage || isAdminPage) {
       // These pages handle their own backgrounds
-      document.body.style.backgroundColor = '#0f172a';
+      document.body.style.backgroundColor = 'transparent';
     } else {
       // Home page - restore the gradient
       document.body.style.background = 'linear-gradient(to bottom, #0f172a, #1e3a8a, #0f172a)';
@@ -43,11 +45,11 @@ function App() {
       document.body.style.backgroundColor = '';
       document.body.style.backgroundAttachment = '';
     };
-  }, [location.pathname]); // Use location.pathname instead of boolean checks
+  }, [location.pathname]);
 
   return (
     <>
-      {!isAuthPage && !isServicesPage && !isAboutPage && !isAdminPage && <SmoothScroll />}
+      {!isAuthPage && !isServicesPage && !isAboutPage && !isBlogPage && !isAdminPage && <SmoothScroll />}
       
       <Routes>
         {/* Home Page Route */}
@@ -76,6 +78,19 @@ function App() {
         
         {/* About Us Page Route */}
         <Route path="/about" element={<AboutUs />} />
+
+        {/* Blog Page Route */}
+        <Route 
+          path="/blog" 
+          element={
+            <>
+              <Navbar />
+              <BlogPage />
+              <Footer />
+            </>
+          } 
+        />
+        
       </Routes>
     </>
   );

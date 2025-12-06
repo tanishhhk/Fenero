@@ -106,10 +106,10 @@ function Navbar() {
             )}
           </div>
           
-          <a href="auth" className={isLinkActive('#') ? 'active' : ''}>Borrower</a>
-          <a href="auth" className={isLinkActive('#') ? 'active' : ''}>Partner</a>
-          <a href="about" className={isLinkActive('#') ? 'active' : ''}>About Us</a>
-          <a href="/" className={isLinkActive('#') ? 'active' : ''}>Blogs</a>
+          <a href="auth" className={isLinkActive('auth') ? 'active' : ''}>Borrower</a>
+          <a href="auth" className={isLinkActive('auth') ? 'active' : ''}>Partner</a>
+          <a href="about" className={isLinkActive('about') ? 'active' : ''}>About Us</a>
+          <a href="blog" className={isLinkActive('blog') ? 'active' : ''}>Blog</a>
         </div>
 
         <div className="new-actions">
@@ -162,10 +162,10 @@ function Navbar() {
             </div>
           </div>
           
-          <a href="#">Borrower</a>
-          <a href="#">Partner</a>
+          <a href="auth">Borrower</a>
+          <a href="auth">Partner</a>
           <a href="about">About Us</a>
-          <a href="#">Blogs</a>
+          <a href="blog">Blog</a>
         </div>
 
         <div className="mobile-actions">
