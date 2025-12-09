@@ -1,8 +1,19 @@
 import "../styles/landing/footer.css";
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
 
 const Footer = () => {
+  const location = useLocation();
+
+  // Instantly scroll to top on route change (no smooth animation)
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+  }, [location.pathname]);
+
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -40,24 +51,23 @@ const Footer = () => {
         <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link></li>
-            <li><Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Services</Link></li>
-            <li><Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About Us</Link></li>
-            <li><Link to="/auth" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Contact</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/auth">Contact</Link></li>
           </ul>
         </div>
 
         {/* Services */}
-<div className="footer-links">
-  <h4>Our Services</h4>
-  <ul>
-    <li><Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Debt Syndication</Link></li>
-    <li><Link to="/services/debt-resolution" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Debt Resolution</Link></li>
-    <li><Link to="/services/investment-banking" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Investment Banking</Link></li>
-    <li><Link to="/services/virtual-cfo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Balance Sheet Optimization/Virtual CFO</Link></li>
-  </ul>
-</div>
-
+        <div className="footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><Link to="/services">Debt Syndication</Link></li>
+            <li><Link to="/services/debt-resolution">Debt Resolution</Link></li>
+            <li><Link to="/services/investment-banking">Investment Banking</Link></li>
+            <li><Link to="/services/virtual-cfo">Balance Sheet Optimization/Virtual CFO</Link></li>
+          </ul>
+        </div>
 
         {/* Contact & Newsletter */}
         <div className="footer-contact">
