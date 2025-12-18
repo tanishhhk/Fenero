@@ -590,10 +590,16 @@
 }
 
 /* Services Grid - Enhanced Interactivity */
+
 .about-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+}
+
+/* Center the 7th item (Financial Modelling) in desktop view */
+.about-services-grid > *:nth-child(7) {
+  grid-column: 2 / 3;
 }
 
 .about-service-card {
@@ -670,9 +676,16 @@
 /* Differentiators Grid - 3D Effect */
 .about-differentiators-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   perspective: 1000px;
+}
+
+/* Center the 5th item (Long-Term Focus) in desktop view */
+.about-differentiators-grid > *:nth-child(5) {
+  grid-column: 1 / -1;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .about-diff-card {
@@ -945,6 +958,12 @@
   .about-operating-features {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .about-services-grid > *:nth-child(7),
+  .about-differentiators-grid > *:nth-child(5) {
+    grid-column: 1;
+    max-width: none;
   }
 
   .about-commitment-card {

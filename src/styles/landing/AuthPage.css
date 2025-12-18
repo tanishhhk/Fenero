@@ -649,6 +649,7 @@
 @media (max-width: 768px) {
   .auth-main-title {
     font-size: 42px;
+    margin-top: 60px; /* Add space for fixed button */
   }
 
   .auth-main-subtitle {
@@ -677,6 +678,10 @@
     top: 20px;
     left: 20px;
   }
+
+  .auth-header {
+    padding-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -686,6 +691,7 @@
 
   .auth-main-title {
     font-size: 32px;
+    margin-top: 50px; 
   }
 
   .role-card {
@@ -699,6 +705,11 @@
 
   .auth-form-title {
     font-size: 24px;
+  }
+
+  .auth-header {
+    margin-bottom: 50px;
+    padding-top: 40px;
   }
 }
 

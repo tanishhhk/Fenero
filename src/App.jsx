@@ -71,9 +71,11 @@ function App() {
 
         {/* Auth Page Route */}
         <Route path="/auth" element={<AuthPage />} />
+        
+        {/* Admin Dashboard Route */}
         <Route path="/admin" element={<AdminDashboard />} />
         
-        {/* Services Page Route */}
+        {/* Services Page Route - with optional serviceType parameter */}
         <Route path="/services/:serviceType?" element={<ServicesPage />} />
         
         {/* About Us Page Route */}
@@ -90,7 +92,6 @@ function App() {
             </>
           } 
         />
-        
       </Routes>
     </>
   );

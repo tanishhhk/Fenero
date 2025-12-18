@@ -190,7 +190,7 @@ def send_welcome_email(user_email, user_name):
                 </div>
                 
                 <div style="text-align: center; margin-top: 30px; color: #5a8aad; font-size: 13px;">
-                    <p>© 2024 Fenero. All rights reserved.</p>
+                    <p>© 2025 Fenero. All rights reserved.</p>
                 </div>
             </body>
         </html>
