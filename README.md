@@ -2,6 +2,8 @@
 
 ![License](https://img.shields.io/badge/license-Proprietary-red.svg)
 ![Status](https://img.shields.io/badge/status-Production-green.svg)
+![Node](https://img.shields.io/badge/node-v22.19.0-brightgreen.svg)
+![React](https://img.shields.io/badge/react-v18+-blue.svg)
 
 **Fenero** is a comprehensive Capital Advisory LLP platform offering professional financial services including Debt Syndication, Debt Resolution, Investment Banking, and Virtual CFO services for businesses seeking financial optimization and growth.
 
@@ -33,109 +35,64 @@ Primary focus on firms and organizations seeking debt syndication between ₹5-5
 ### Frontend
 - **React** (v18+) - Modern UI framework
 - **Vite** - Lightning-fast build tool and dev server
-- **TailwindCSS** (assumed) - Utility-first CSS framework
+- **JavaScript/JSX** - Component development
+- **CSS3** - Custom styling and animations
 - **React Router** - Client-side routing
-
-### Backend
-- **Python** (v3.13.7) - Backend logic and API
-- **Flask/FastAPI** - Web framework (specify which you're using)
-- **SQLite** - Lightweight database for user management
 
 ### Infrastructure
 - **Vercel** - Current deployment platform
 - **AWS** - Planned production infrastructure
-- **SMTP** - Automated email service integration
+- **RESTful API** - Backend communication
 
-##  Prerequisites
+## Prerequisites
 
 Before running this project, ensure you have:
 
 - **Node.js** v22.19.0 or higher
-- **Python** 3.13.7 or higher
 - **npm** or **yarn** package manager
-- **pip** for Python dependencies
-- SMTP credentials for email services
 
 ## Installation & Setup
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/fenero.git
+git clone https://github.com/tanishhhk/fenero.git
 cd fenero
 ```
 
-### 2. Frontend Setup
+### 2. Install Dependencies
 
 ```bash
-# Install dependencies
+# Install frontend dependencies
 npm install
-
-# Start development server
-npm run dev
 ```
 
-The frontend will be available at `http://localhost:5173`
-
-### 3. Backend Setup
-
-```bash
-# Navigate to backend directory (if separate)
-cd backend
-
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Run backend server
-python app.py
-```
-
-### 4. Environment Configuration
+### 3. Environment Configuration
 
 Create a `.env` file in the root directory (use `.env.example` as template):
 
 ```env
-# Email Configuration
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your-email@example.com
-SMTP_PASSWORD=your-app-password
-SMTP_FROM_NAME=Fenero
-SMTP_FROM_EMAIL=noreply@yourdomain.com
-
-# Notification Emails
-OWNER_NOTIFICATION_EMAIL=admin@yourdomain.com
-
-# Database
-DATABASE_URL=sqlite:///users.db
-
 # API Configuration
-API_BASE_URL=http://localhost:5000
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=your-api-endpoint-here
 
-# Other configurations as needed
+# Add other configuration as needed
 ```
 
-**Important:** Never commit your `.env` file. It contains sensitive credentials.
+**Important:** Never commit your `.env` file. It contains sensitive configuration.
 
-## Project Structure :
+### 4. Start Development Server
+
+```bash
+# Start the development server
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Project Structure
 
 ```
 fenero/
-├── backend/                    # Python backend
-│   ├── app.py                 # Main Flask/FastAPI application
-│   ├── requirements.txt       # Python dependencies
-│   ├── start.md              # Backend documentation
-│   └── users.db              # SQLite database (not in git)
 ├── src/                       # Frontend React source
 │   ├── components/           # Reusable UI components
 │   │   ├── landing/         # Landing page components
@@ -170,29 +127,30 @@ fenero/
 ## Deployment
 
 ### Current Deployment
-- **Platform:** Vercel (Temporary)
+- **Platform:** Vercel
 - **URL:** https://fenero.vercel.app/
 
 ### Planned Production Deployment
 - **Platform:** AWS / Alternative hosting
 - **Domain:** To be configured post-domain purchase
+- **Timeline:** Within 1 week
 
 ### Build Commands
 
 ```bash
-# Frontend build
+# Production build
 npm run build
 
-# Backend deployment
-# (Add specific deployment commands based on your setup)
+# Preview production build locally
+npm run preview
 ```
 
 ## Security & Privacy
 
 - All sensitive credentials are stored in environment variables
-- Database contains encrypted user information
-- SMTP passwords use app-specific authentication
+- Secure API communication with backend services
 - Regular security audits and updates
+- Industry-standard encryption for data transmission
 
 **Note:** This codebase is for **display and portfolio purposes only**. It is not intended for direct usage or modification by third parties.
 
@@ -213,14 +171,15 @@ This project is **proprietary software**. The source code is made available for:
 
 Unauthorized use, reproduction, or distribution of this code may result in legal action.
 
-## Contact:
+## Contact
 
 **Fenero Capital Advisory LLP**
 
 - **Website:** [Coming Soon - Post Domain Purchase]
-- **Email:** [fenerocapitaladvisory@gmail.com]
+- **Email:** fenerocapitaladvisory@gmail.com
 - **Services:** Debt Syndication | Debt Resolution | Investment Banking | Virtual CFO
-- **Location:** Noida
+- **Location:** Noida, India
+
 ---
 
 ## Roadmap
@@ -228,22 +187,24 @@ Unauthorized use, reproduction, or distribution of this code may result in legal
 - [x] Core platform development
 - [x] User registration and notification system
 - [x] Service request management
+- [x] Responsive UI/UX design
 - [ ] Custom domain integration
 - [ ] AWS production deployment
 - [ ] Enhanced analytics dashboard
 - [ ] Client portal with document management
 - [ ] Advanced loan matching algorithms
+- [ ] Mobile application
 
 ## Notes for Developers
 
 This repository represents a **production business application**. While the code is public for demonstration:
 
-1. **Environment Setup:** Requires proper `.env` configuration
-2. **Database:** SQLite for development; consider PostgreSQL for production
-3. **Email Service:** Configure SMTP credentials before deployment
+1. **Environment Setup:** Requires proper `.env` configuration with API endpoints
+2. **Frontend Only:** This repository showcases the client-side application
+3. **Backend Services:** Integrated with proprietary backend services (not included)
 4. **Domain Migration:** Update all API endpoints post-domain purchase
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with modern web technologies to deliver professional financial advisory services. This platform represents the technical infrastructure of a registered Capital Advisory LLP.
 
