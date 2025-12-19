@@ -1,3 +1,15 @@
+/**
+ * Copyright (c) 2025-2026 Fenero Capital Advisory LLP
+ * All Rights Reserved.
+ * 
+ * This file is part of the Fenero platform and is proprietary software.
+ * Unauthorized copying, modification, or distribution is strictly prohibited.
+ * 
+ * Author: Tanishk Jain
+ * Company: Fenero Capital Advisory LLP
+ * Contact: fenerocapitaladvisory@gmail.com
+ */
+
 import "../../styles/landing/consult.css"
 import { useNavigate } from 'react-router-dom'; // Add this import
 
