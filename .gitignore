@@ -64,4 +64,5 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
-.temp/
+.temp/"src/components/AdminDashboard.jsx" 
+"src/styles/AdminDashboard.css" 
