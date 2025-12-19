@@ -1,5 +1,3 @@
-
-![License](https://img.shields.io/badge/license-Proprietary-red.svg)
 ![Status](https://img.shields.io/badge/status-Production-green.svg)
 ![Node](https://img.shields.io/badge/node-v22.19.0-brightgreen.svg)
 ![React](https://img.shields.io/badge/react-v18+-blue.svg)
