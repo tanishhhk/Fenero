@@ -5,7 +5,6 @@ import "../styles/landing/AuthPage.css"
 const AuthPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
   const [step, setStep] = useState('role');
   const [selectedRole, setSelectedRole] = useState(null);
   const [authMode, setAuthMode] = useState('login');
@@ -422,4 +421,3 @@ const AuthPage = () => {
 };
 
 export default AuthPage;
-
