@@ -86,7 +86,9 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <div className="logo"><Link to="/">Fenero</Link></div>
+                  <Link to="/" className="logo">
+          <img src="/fenero-final.png" alt="Fenero Logo"/>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
