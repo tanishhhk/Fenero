@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Target, Users, TrendingUp, FileText, Calculator, Building, Award, Lock, Compass, BarChart3, Handshake, MessageSquare } from 'lucide-react';
 import '../styles/AboutUs.css';

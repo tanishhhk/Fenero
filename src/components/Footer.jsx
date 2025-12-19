@@ -5,7 +5,6 @@ import React, { useEffect } from "react";
 const Footer = () => {
   const location = useLocation();
 
-  // Instantly scroll to top on route change (no smooth animation)
   useEffect(() => {
     window.scrollTo({
       top: 0,
