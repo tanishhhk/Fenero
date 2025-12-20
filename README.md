@@ -125,7 +125,7 @@ fenero/
 
 ### Current Deployment
 - **Platform:** Vercel
-- **URL:** https://fenero.vercel.app/
+- **URL:** [https://fenero.vercel.app/](https://www.fenerocapital.in/)
 
 ### Planned Production Deployment
 - **Platform:** AWS / Alternative hosting
