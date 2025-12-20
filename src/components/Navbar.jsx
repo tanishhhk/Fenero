@@ -87,7 +87,7 @@ function Navbar() {
     <>
       <nav className="navbar">
                   <Link to="/" className="logo">
-          <img src="/fenero-final.png" alt="Fenero Logo"/>
+          <img src="/fener-o.png" alt="Fenero Logo"/>
         </Link>
 
         {/* Desktop Navigation */}

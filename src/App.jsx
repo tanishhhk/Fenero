@@ -15,6 +15,7 @@ import ServicesPage from "./pages/services";
 import AboutUs from "./pages/AboutUs";
 import BlogPage from "./pages/BlogPage";
 
+
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
