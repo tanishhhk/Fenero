@@ -125,12 +125,7 @@ fenero/
 
 ### Current Deployment
 - **Platform:** Vercel
-- **URL:** https://fenero.vercel.app/
-
-### Planned Production Deployment
-- **Platform:** AWS / Alternative hosting
-- **Domain:** To be configured post-domain purchase
-- **Timeline:** Within 1 week
+- **URL:** https://www.fenerocapital.in/
 
 ### Build Commands
 
@@ -172,7 +167,7 @@ Unauthorized use, reproduction, or distribution of this code may result in legal
 
 **Fenero Capital Advisory LLP**
 
-- **Website:** [Coming Soon - Post Domain Purchase]
+- **Website:** https://www.fenerocapital.in/
 - **Email:** fenerocapitaladvisory@gmail.com
 - **Services:** Debt Syndication | Debt Resolution | Investment Banking | Virtual CFO
 - **Location:** Noida, India
