@@ -84,11 +84,16 @@ const AuthPage = () => {
           })
         });
 
-        const data = await response.json();
+let data = {};
+try {
+  data = await response.json();
+} catch (e) {
+  // response had no JSON body
+}
 
-        if (!response.ok) {
-          throw new Error(data.error || 'Signup failed');
-        }
+if (!response.ok) {
+  throw new Error(data.error || 'Signup failed. Please try again.');
+}
 
         // Show success screen (no auto-redirect)
         setShowSuccessScreen(true);
