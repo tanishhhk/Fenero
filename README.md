@@ -125,7 +125,7 @@ fenero/
 
 ### Current Deployment
 - **Platform:** Vercel
-- **URL:** https://www.fenerocapital.in/
+- **URL:** https://www.fenerocapital.in
 
 ### Build Commands
 
@@ -167,7 +167,7 @@ Unauthorized use, reproduction, or distribution of this code may result in legal
 
 **Fenero Capital Advisory LLP**
 
-- **Website:** https://www.fenerocapital.in/
+- **Website:** https://www.fenerocapital.in
 - **Email:** fenerocapitaladvisory@gmail.com
 - **Services:** Debt Syndication | Debt Resolution | Investment Banking | Virtual CFO
 - **Location:** Noida, India
