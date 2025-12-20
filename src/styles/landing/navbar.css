@@ -11,12 +11,13 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   height: auto;
   min-height: 70px;
 }
 
+/* ENHANCED LOGO SECTION WITH ANIMATED BORDER */
 .navbar .logo {
   font-weight: bold;
   color: #000;
@@ -24,27 +25,76 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  position: relative;
+  padding: 6px 14px 6px 6px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.navbar .logo::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    var(--angle),
+    rgba(1, 115, 230, 0.6),
+    rgba(0, 86, 210, 0.3),
+    transparent,
+    transparent,
+    rgba(1, 115, 230, 0.6)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  animation: rotate-border 3s linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-border {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.navbar .logo:hover {
+  background: rgba(1, 115, 230, 0.02);
+  transform: translateY(-1px);
+}
+
+.navbar .logo:hover::before {
+  background: linear-gradient(
+    var(--angle),
+    rgba(1, 115, 230, 0.8),
+    rgba(0, 86, 210, 0.5),
+    transparent,
+    transparent,
+    rgba(1, 115, 230, 0.8)
+  );
 }
 
 .navbar .logo img {
-  height: 50px !important;
-  width: auto !important;
-  max-height: none !important;
-  min-height: unset !important;
-  object-fit: contain !important;
-  display: block !important;
+  height: 75px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(1, 115, 230, 0.08));
+  transition: all 0.3s ease;
 }
 
-/* Alternative selector for extra specificity */
-.logo > img,
-a.logo > img,
-.navbar a.logo img {
-  height: 50px !important;
-  width: auto !important;
-  max-height: none !important;
-  min-height: unset !important;
-  object-fit: contain !important;
-  display: block !important;
+.navbar .logo:hover img {
+  filter: drop-shadow(0 2px 6px rgba(1, 115, 230, 0.2));
+  transform: scale(1.02);
 }
 
 .nav-links {
@@ -62,7 +112,7 @@ a.logo > img,
   text-decoration: none;
   cursor: pointer;
   font-size: 20px;
-  transition: opacity 0.3s unset;
+  transition: opacity 0.3s ease;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -508,7 +558,7 @@ a.logo > img,
   }
   
   .navbar .logo img {
-    height: 65px !important;
+    height: 85px !important;
   }
 
   a {
@@ -533,6 +583,10 @@ a.logo > img,
   .navbar {
     padding: 15px 20px;
     justify-content: space-between;
+  }
+
+  .navbar .logo img {
+    height: 48px;
   }
   
   .logo img {
@@ -566,10 +620,11 @@ a.logo > img,
   .navbar {
     justify-content: space-between;
     padding: 15px 20px;
+    height: 40px;
   }
   
   .logo img {
-    height: 32px;
+    height: 40px;
   }
   
   /* Hide desktop navigation */
@@ -583,6 +638,13 @@ a.logo > img,
     display: flex;
   }
 }
+
+@media (min-width: 1440px) {
+  .navbar .logo img {
+    height: 90px;
+  }
+}
+
 
 /* Small Mobile (up to 480px) */
 @media (max-width: 480px) {
