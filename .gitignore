@@ -14,34 +14,18 @@ lerna-debug.log*
 .env.production
 .env.development
 
-# Database files
-users.db
-*.db
-*.sqlite
-*.sqlite3
-
-# Python
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
-venv/
-env/
-
-# Backend - Complete folder hidden
+# Backend (never tracked in frontend repo)
 backend/
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Build files
+# Node / build
+node_modules/
+dist/
+dist-ssr/
 build/
 .cache/
+*.local
 
-# Editor directories and files
+# Editor files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -64,5 +48,3 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
-.temp/"src/components/AdminDashboard.jsx" 
-"src/styles/AdminDashboard.css" 
