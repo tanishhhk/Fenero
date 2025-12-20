@@ -47,7 +47,7 @@ const AboutUs = () => {
       {/* Who We Are */}
       <section className="about-content-section">
         <div className="about-glass-card">
-          <h2 className="about-section-title">Who We Are</h2>
+          <h2 className="about-section-title">Who Are We</h2>
           <p className="about-section-text">
             Fenero Capital Advisory LLP is a bootstrapped, specialized debt advisory and financial strategy firm committed to delivering clarity, structure, and intelligent capital planning. We bridge the gap between businesses seeking growth capital and financial institutions offering it, ensuring seamless transactions built on deep market understanding and relationship strength. Our approach combines traditional banking wisdom with modern efficiency, serving clients across diverse industries with precision and confidentiality.
           </p>
