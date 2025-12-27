@@ -94,7 +94,7 @@ const AboutUs = () => {
         <div className="about-glass-card">
           <h2 className="about-section-title">Our Foundation</h2>
           <p className="about-section-text about-leadership-intro">
-            Fenero is led by two seasoned banking professionals with complementary expertise and a shared commitment to excellence.
+            Fenero is led by a seasoned banking professional with complementary expertise and a shared commitment to excellence.
           </p>
           
           {/* <div className="about-leadership-stats">
