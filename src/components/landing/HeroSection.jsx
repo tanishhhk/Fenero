@@ -58,13 +58,13 @@ function HeroSection() {
         onMouseLeave={() => setIsHovering(false)}
       >
         {/* Badge */}
-        <div className="hero-badge">
+        {/* <div className="hero-badge">
           <span className="badge-pulse-container">
             <span className="badge-pulse"></span>
             <span className="badge-dot"></span>
           </span>
           Fenero Capital Advisory LLP
-        </div>
+        </div> */}
 
         {/* Main Heading */}
         <h1 className="hero-heading">
