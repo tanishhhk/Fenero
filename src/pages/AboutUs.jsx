@@ -97,13 +97,13 @@ const AboutUs = () => {
             Fenero is led by two seasoned banking professionals with complementary expertise and a shared commitment to excellence.
           </p>
           
-          <div className="about-leadership-stats">
+          {/* <div className="about-leadership-stats">
             <div className="about-leadership-stats-number">40+</div>
             <div className="about-leadership-stats-text">Years Combined Banking Experience</div>
-          </div>
+          </div> */}
 
           <div className="about-leadership-grid">
-            <div className="about-leader-card">
+            {/* <div className="about-leader-card">
               <div className="about-leader-icon">
                 <Users size={48} />
               </div>
@@ -114,7 +114,7 @@ const AboutUs = () => {
                   Extensive background in credit assessment, structured finance, and institutional banking relationships across multiple sectors.
                 </p>
               </div>
-            </div>
+            </div> */}
             <div className="about-leader-card">
               <div className="about-leader-icon">
                 <Users size={48} />
